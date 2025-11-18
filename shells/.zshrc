@@ -108,15 +108,15 @@ source $ZSH/oh-my-zsh.sh
 
 # neovim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-alias vi=nvim
 export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-# bat
-alias bat="batcat"
+# Set Locale
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
 
 # Open a tmux session by default
 if command -v tmux >/dev/null 2>&1; then
@@ -128,5 +128,8 @@ if command -v tmux >/dev/null 2>&1; then
 fi
 
 
+# GPG key signing doesn't work on ghostty without this set.
 GPG_TTY=$(tty)
 export GPG_TTY
+
+source ~/.config/aliases

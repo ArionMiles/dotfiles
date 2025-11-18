@@ -8,3 +8,6 @@ fi
 
 echo "Soft linking .zshrc to ${HOME} directory."
 ln -s -v ${DOTFILESDIR}/shells/.zshrc ${HOME}/
+
+echo "Soft linking aliases to ${HOME}/.config/aliases"
+ln -s -v ${DOTFILESDIR}/shells/aliases ${HOME}/.config/aliases
