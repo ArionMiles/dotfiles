@@ -1,0 +1,4 @@
+alias bat="batcat"
+alias vi="nvim"
+alias gs="git status"
+alias k="kubectl"
