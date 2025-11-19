@@ -1,6 +1,11 @@
 #!/bin/bash
 
-DOTDIR=`pwd`
+DOTFILESDIR=~/dotfiles
+
+if [ -z "$DOTFILESDIR" ]; then
+        echo "DOTFILESDIR var is not set."
+        exit 1
+fi
 
 function exit_if_failed{
     echo "# ERROR # Exiting.."
