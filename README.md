@@ -6,6 +6,22 @@ My dotfiles are my best friend. They are my life. I must master them as I must m
 
 Without me, my dotfiles are useless. Without my dotfiles, I am ~~useless~~ less productive.
 
+## Setup
+
+1. Clone into your $HOME
+  ```bash
+  git clone https://github.com/ArionMiles/dotfiles ~
+  ```
+2. Either run the below command that will execute `setup.sh` for every sub-directory or you may manually run setup for the directories you need to install.
+  ```bash
+  cd dotfiles
+  bash setup.sh
+  ```
+
+> [!NOTE]
+> Please edit the following files if you are cloning/forking this repository:
+> * git/.gitconfig [`user.email`, `user.name`, and user.signingkey]
+
 ## Credits
 
 A few ideas here are inspired from my good friend [oxalorg's dotfiles](https://github.com/oxalorg/dotfiles)
