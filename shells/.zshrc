@@ -111,6 +111,11 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Setup pyenv if found
+if command -v pyenv > /dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
