@@ -18,6 +18,13 @@ Without me, my dotfiles are useless. Without my dotfiles, I am ~~useless~~ less 
   bash setup.sh
   ```
 
+### Optional
+
+Use the `Brewfile` to install/upgrade all packages
+```bash
+brew bundle install
+```
+
 > [!NOTE]
 > Please edit the following files if you are cloning/forking this repository:
 > * git/config [`user.email`, `user.name`, and `user.signingkey`]
