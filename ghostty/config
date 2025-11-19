@@ -1,0 +1,11 @@
+theme = catppuccin-mocha.conf
+font-size = 14
+background-opacity = 0.95
+gtk-titlebar = false
+window-save-state = always
+clipboard-read = "allow"
+clipboard-paste-protection = false
+macos-titlebar-style = "hidden"
+
+
+shell-integration-features = ssh-terminfo,ssh-env
