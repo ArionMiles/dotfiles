@@ -1,0 +1,49 @@
+# Halloy config.
+#
+# For a complete list of available options,
+# please visit https://halloy.chat/configuration/
+
+scale_factor = 1.2
+
+[servers.znc-libera]
+server = "192.168.1.10"
+port = 2020
+dangerously_accept_invalid_certs = true
+nickname = "arion/libera"
+password_file = "~/.znc/passwd"
+
+[actions.sidebar]
+buffer = "replace-pane"
+
+[preview]
+enabled = false
+
+[notifications]
+direct_message = { sound = "drop", show_toast = true }
+highlight = { sound = "zone", show_toast = true }
+
+[buffer.backlog_separator]
+hide_when_all_read = true
+
+[buffer.url]
+prompt_before_open = true
+
+[buffer.server_messages.topic]
+enabled = false
+
+[buffer.channel.topic_banner]
+enabled = true
+max_lines = 2
+
+[buffer.server_messages]
+join.smart = 900
+part.smart = 900
+quit.smart = 900
+change_nick.smart = 900
+
+[buffer.internal_messages]
+success.smart = 300
+error.smart = 300
+
+[buffer.text_input]
+auto_format = "markdown"
