@@ -20,7 +20,7 @@ Without me, my dotfiles are useless. Without my dotfiles, I am ~~useless~~ less 
 
 > [!NOTE]
 > Please edit the following files if you are cloning/forking this repository:
-> * git/.gitconfig [`user.email`, `user.name`, and user.signingkey]
+> * git/.gitconfig [`user.email`, `user.name`, and `user.signingkey`]
 
 ## Credits
 
