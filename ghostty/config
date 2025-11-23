@@ -1,4 +1,5 @@
 theme = Catppuccin Mocha
+font-family = FiraCode Nerd Font
 font-size = 14
 background-opacity = 0.95
 gtk-titlebar = false
