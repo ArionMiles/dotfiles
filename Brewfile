@@ -9,6 +9,8 @@ brew "libtiff"
 brew "jpeg-xl"
 # Codec library for encoding and decoding AV1 video streams
 brew "aom"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Core application library for C
 brew "glib"
 # Vector graphics library with cross-device output support
