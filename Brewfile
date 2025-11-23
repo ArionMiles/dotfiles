@@ -33,22 +33,38 @@ brew "git-delta"
 brew "gnupg"
 # Improved top (interactive process viewer)
 brew "htop"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Linux virtual machines
 brew "lima"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Python version management
 brew "pyenv"
 # Generic machine emulator and virtualizer
 brew "qemu"
+# SVG rendering tool and library
+brew "resvg"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
 # Quantum Mechanical Keyboard (QMK) Firmware
@@ -57,6 +73,7 @@ brew "qmk/qmk/qmk"
 brew "teamookla/speedtest/speedtest"
 # App for managing battery charging
 cask "batfi"
+cask "font-symbols-only-nerd-font"
 # IRC client
 cask "halloy"
 # Media player based on MPlayer and mplayer2
