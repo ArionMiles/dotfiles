@@ -8,5 +8,4 @@ clipboard-read = "allow"
 clipboard-paste-protection = false
 macos-titlebar-style = "hidden"
 
-
 shell-integration-features = ssh-terminfo,ssh-env
