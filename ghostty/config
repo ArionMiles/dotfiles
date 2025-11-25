@@ -7,5 +7,13 @@ window-save-state = always
 clipboard-read = "allow"
 clipboard-paste-protection = false
 macos-titlebar-style = "hidden"
+clipboard-trim-trailing-spaces = true
+mouse-hide-while-typing = true
+macos-titlebar-proxy-icon = hidden
+macos-icon = xray
+cursor-style-blink = true
+cursor-style = block
 
-shell-integration-features = ssh-terminfo,ssh-env
+custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
+
+shell-integration-features = ssh-terminfo,ssh-env,no-cursor
