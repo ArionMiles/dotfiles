@@ -15,5 +15,6 @@ cursor-style-blink = true
 cursor-style = block
 
 custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
+custom-shader = ~/.config/ghostty/shaders/bloom.glsl
 
 shell-integration-features = ssh-terminfo,ssh-env,no-cursor
