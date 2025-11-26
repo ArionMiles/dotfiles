@@ -4,7 +4,7 @@
 # please visit https://halloy.chat/configuration/
 
 scale_factor = 1.2
-theme = "retro"
+theme = "Nostromo Terminal"
 
 [servers.znc-libera]
 server = "192.168.1.10"
