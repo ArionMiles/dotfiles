@@ -1,4 +1,5 @@
 tap "jesseduffield/lazydocker"
+tap "joshmedeski/sesh"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
@@ -73,6 +74,8 @@ brew "yt-dlp"
 brew "zoxide"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
+# Smart terminal session manager
+brew "joshmedeski/sesh/sesh"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Ookla Speedtest
