@@ -119,6 +119,9 @@ fi
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+# Setup zoxide bindings and completion
+eval "$(zoxide init zsh)"
+
 # Set Locale
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
