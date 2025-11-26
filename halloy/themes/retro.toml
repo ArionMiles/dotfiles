@@ -1,0 +1,50 @@
+[general]
+background = "#002B36"         # Retro deep black
+border = "#222C22"             # Dark greenish border
+horizontal_rule = "#1B1B1B"
+scrollbar = "#1B1B1B"
+unread_indicator = "#99FF66"   # Lime green for attention
+highlight_indicator = "#4a6b43" #"#39FF14" # Neon green highlight
+
+[text]
+primary = "#17d488"            # Classic phosphor green
+secondary = "#99FF99"          # Pale green
+tertiary = "#33FF77"           # Soft minty green
+success = "#19C919"            # Medium green
+error = "#FF5555"              # Vivid red for contrast
+warning = "#FFEB3B"            # Bright yellow for warnings
+info = "#66FFB2"               # Aqua-green for info
+debug = "#C0FCCC"              # Light pastel green
+trace = "#B0EFC8"              # Dimmer pastel green
+
+[buffer]
+action = "#00FF99"             # Vibrant teal-green
+background = "#002B36"         # Blacker than black background
+background_text_input = "#141914" # Slight olive for input
+background_title_bar = "#141914"
+border = "#00140000"           # Transparent/dark
+border_selected = "#17d488"    # Neon green accent
+code = "#16A085"               # Muted green-blue
+highlight = "#1FAB89"          # Soft green highlight
+nickname = "#ADFF2F"           # Yellow-green for nicknames
+selection = "#024902"          # Very dark green
+timestamp = "#6FCF97"          # Muted green for time
+topic = "#17d488"              # Pale green
+url = "#39FF14"                # Neon green in buffer
+nickname_offline = "#555F55"   # Dim olive green
+
+[buffer.server_messages]
+default = "#C7F464"            # Vintage green-yellow for system
+
+[buttons.primary]
+background = "#181818"
+background_hover = "#232323"
+background_selected = "#0A170A"
+background_selected_hover = "#1A3A1A"
+
+[buttons.secondary]
+background = "#222C22"
+background_hover = "#295429"
+background_selected = "#334D33"
+background_selected_hover = "#467346"
+
