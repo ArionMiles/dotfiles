@@ -11,10 +11,14 @@ brew "jpeg-xl"
 brew "aom"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Core application library for C
 brew "glib"
 # Vector graphics library with cross-device output support
 brew "cairo"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Validating, recursive, caching DNS resolver
@@ -55,6 +59,8 @@ brew "resvg"
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
+# Terminal multiplexer
+brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Tools for the WireGuard secure network tunnel
