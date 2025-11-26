@@ -120,7 +120,7 @@ fi
 source <(fzf --zsh)
 
 # Setup zoxide bindings and completion
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # Set Locale
 export LC_ALL=en_IN.UTF-8
