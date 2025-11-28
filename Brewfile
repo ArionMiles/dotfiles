@@ -1,9 +1,6 @@
-tap "jesseduffield/lazydocker"
 tap "joshmedeski/sesh"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
-tap "qmk/qmk"
-tap "teamookla/speedtest"
 # TIFF library and utilities
 brew "libtiff"
 # New file format for still image compression
@@ -42,8 +39,6 @@ brew "htop"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Linux virtual machines
-brew "lima"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -62,8 +57,6 @@ brew "ripgrep"
 brew "sevenzip"
 # Terminal multiplexer
 brew "tmux"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
 # Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
 # Blazing fast terminal file manager written in Rust, based on async I/O
@@ -72,22 +65,13 @@ brew "yazi"
 brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# A simple terminal UI for docker, written in Go
-brew "jesseduffield/lazydocker/lazydocker"
 # Smart terminal session manager
 brew "joshmedeski/sesh/sesh"
-# Quantum Mechanical Keyboard (QMK) Firmware
-brew "qmk/qmk/qmk"
-# Ookla Speedtest
-brew "teamookla/speedtest/speedtest"
 # App for managing battery charging
 cask "batfi"
 cask "font-symbols-only-nerd-font"
 # IRC client
 cask "halloy"
-# Media player based on MPlayer and mplayer2
-cask "stolendata-mpv"
 go "github.com/go-delve/delve/cmd/dlv"
 go "golang.org/x/tools/gopls"
-go "github.com/cweill/gotests/gotests"
 go "honnef.co/go/tools/cmd/staticcheck"
