@@ -16,7 +16,6 @@ gtk-titlebar = false
 # MacOS specific config
 macos-titlebar-style = "hidden"
 macos-titlebar-proxy-icon = hidden
-macos-option-as-alt = true
 macos-icon = xray
 
 # Shady stuff
