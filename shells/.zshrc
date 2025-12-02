@@ -122,6 +122,7 @@ fi
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS="--layout=reverse --border=bold --border=rounded --margin=3% --color=dark"
+source ~/dotfiles/scripts/fzf-git.sh
 
 # Setup zoxide bindings and completion
 eval "$(zoxide init --cmd cd zsh)"
