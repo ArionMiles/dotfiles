@@ -1,3 +1,4 @@
+tap "amir20/dtop"
 tap "joshmedeski/sesh"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
@@ -69,6 +70,8 @@ brew "zoxide"
 brew "joshmedeski/sesh/sesh"
 # App for managing battery charging
 cask "batfi"
+# A terminal-based Docker container monitoring tool
+cask "dtop"
 cask "font-symbols-only-nerd-font"
 # IRC client
 cask "halloy"
