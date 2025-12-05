@@ -25,6 +25,10 @@ Use the `Brewfile` to install/upgrade all packages
 ```bash
 brew bundle install
 ```
+Install zsh-autosuggestions
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
 
 > [!NOTE]
 > Please edit the following files if you are cloning/forking this repository:
