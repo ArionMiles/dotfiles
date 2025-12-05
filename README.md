@@ -10,11 +10,12 @@ Without me, my dotfiles are useless. Without my dotfiles, I am ~~useless~~ less 
 
 1. Clone into your $HOME
   ```bash
-  git clone https://github.com/ArionMiles/dotfiles ~
+  git clone https://github.com/ArionMiles/dotfiles ~/dotfiles
   ```
 2. Either run the below command that will execute `setup.sh` for every sub-directory or you may manually run setup for the directories you need to install.
   ```bash
   cd dotfiles
+  chmod +x setup.sh
   bash setup.sh
   ```
 
