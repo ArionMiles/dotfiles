@@ -7,7 +7,7 @@ if [ -z "$DOTFILESDIR" ]; then
         exit 1
 fi
 
-function exit_if_failed{
+function exit_if_failed {
     echo "# ERROR # Exiting.."
     echo 1>&2 "failed with $?"
     exit 1
