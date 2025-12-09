@@ -1,5 +1,6 @@
 tap "amir20/dtop"
 tap "joshmedeski/sesh"
+tap "nikitabobko/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 # TIFF library and utilities
@@ -72,9 +73,11 @@ brew "joshmedeski/sesh/sesh"
 cask "batfi"
 # A terminal-based Docker container monitoring tool
 cask "dtop"
-cask "font-symbols-only-nerd-font"
+cask "font-fira-code-nerd-font"
 # IRC client
 cask "halloy"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
 go "github.com/go-delve/delve/cmd/dlv"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
