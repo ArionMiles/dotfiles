@@ -16,6 +16,7 @@ gtk-titlebar = false
 macos-titlebar-style = "hidden"
 macos-titlebar-proxy-icon = hidden
 macos-icon = xray
+macos-option-as-alt = true
 
 # Shady stuff
 custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
