@@ -6,3 +6,6 @@ set relativenumber
 
 " Enable syntax highlighting
 syntax on
+
+" Yank to system clipboard
+set clipboard+=unnamedplus
