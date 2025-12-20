@@ -17,6 +17,8 @@ brew "btop"
 brew "glib"
 # Vector graphics library with cross-device output support
 brew "cairo"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
@@ -29,11 +31,15 @@ brew "harfbuzz"
 brew "tesseract"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# GNU Pretty Good Privacy (PGP) package
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Improved top (interactive process viewer)
 brew "htop"
