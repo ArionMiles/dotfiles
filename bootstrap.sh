@@ -164,7 +164,7 @@ install_omz () {
     info "Oh My Zsh is already installed."
   else
     info "Installing Oh My Zsh"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
     success "Oh My Zsh installed."
   fi
 }
