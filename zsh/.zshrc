@@ -1,3 +1,12 @@
+source_if_exists () {
+    if test -r "$1"; then
+        source "$1"
+    fi
+}
+
+source_if_exists $HOME/.env.sh
+source_if_exists $DOTFILES/zsh/aliases.zsh
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -65,9 +74,6 @@ ZSH_THEME="robbyrussell"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -76,6 +82,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	git
 	zsh-autosuggestions
+	aws
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,18 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # neovim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export EDITOR="nvim"
@@ -119,17 +114,17 @@ if command -v pyenv > /dev/null 2>&1; then
 	eval "$(pyenv init -)"
 fi
 
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-export FZF_DEFAULT_OPTS="--layout=reverse --border=bold --border=rounded --margin=3% --color=dark"
-source ~/dotfiles/scripts/fzf-git.sh
+# Set up fzf if found
+if command -v fzf > /dev/null 2>&1; then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_OPTS="--layout=reverse --border=bold --border=rounded --margin=3% --color=dark"
+  source $DOTFILES/fzf/fzf-git.sh
+fi
 
-# Setup zoxide bindings and completion
-eval "$(zoxide init --cmd cd zsh)"
-
-# Set Locale
-export LC_ALL=en_IN.UTF-8
-export LANG=en_IN.UTF-8
+# Setup zoxide if found
+if command -v zoxide > /dev/null 2>&1; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
 
 # Open a tmux session by default
 if command -v tmux >/dev/null 2>&1; then
@@ -140,9 +135,10 @@ if command -v tmux >/dev/null 2>&1; then
   fi
 fi
 
-
 # GPG key signing doesn't work on ghostty without this set.
 GPG_TTY=$(tty)
 export GPG_TTY
 
-source ~/.config/aliases
+# Set Locale
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8

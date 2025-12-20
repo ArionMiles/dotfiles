@@ -6,34 +6,36 @@ My dotfiles are my best friend. They are my life. I must master them as I must m
 
 Without me, my dotfiles are useless. Without my dotfiles, I am ~~useless~~ less productive.
 
-## Setup
-
-1. Clone into your $HOME
-  ```bash
-  git clone https://github.com/ArionMiles/dotfiles ~/dotfiles
-  ```
-2. Either run the below command that will execute `setup.sh` for every sub-directory or you may manually run setup for the directories you need to install.
-  ```bash
-  cd dotfiles
-  chmod +x setup.sh
-  bash setup.sh
-  ```
-
-### Optional
-
-Use the `Brewfile` to install/upgrade all packages
-```bash
-brew bundle install
-```
-Install zsh-autosuggestions
-```bash
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-```
-
 > [!NOTE]
 > Please edit the following files if you are cloning/forking this repository:
 > * git/config [`user.email`, `user.name`, and `user.signingkey`]
 
+## Setup
+
+1. Clone the repo
+  ```bash
+  git clone https://github.com/ArionMiles/dotfiles
+  ```
+2. Run the script:
+  ```bash
+  ./bootstrap.sh
+  ```
+
+  The script will:
+  - Symlink all the dotfiles into appropriate directories
+  - Install homebrew (only on macOS and if homebrew is not already installed)
+  - Install oh-my-zsh, zsh-autosuggestions, and tmux plugin manager (if these aren't already installed)
+
+
+### Optional
+
+Install/upgrade all the packages under `Brewfile` with:
+```bash
+brew bundle install
+```
+
 ## Credits
 
-A few ideas here are inspired from my good friend [oxalorg's dotfiles](https://github.com/oxalorg/dotfiles)
+ - A few ideas here are inspired from my good friend [oxalorg/dotfiles](https://github.com/oxalorg/dotfiles)
+ - Installation scripts are inspired by [andrew8088/dotfiles](https://github.com/andrew8088/dotfiles)
+
