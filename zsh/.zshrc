@@ -5,7 +5,6 @@ source_if_exists () {
 }
 
 source_if_exists $HOME/.env.sh
-source_if_exists $DOTFILES/zsh/aliases.zsh
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -91,6 +90,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+source_if_exists $DOTFILES/zsh/aliases.zsh
 
 # User configuration
 
