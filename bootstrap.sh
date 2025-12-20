@@ -189,12 +189,25 @@ install_tpm () {
   fi
 }
 
+install_awscliv2 () {
+  if test ! $(which aws); then
+    info "Installing AWS CLI v2"
+    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"
+    sudo installer -pkg /tmp/AWSCLIV2.pkg -target /
+    rm /tmp/AWSCLIV2.pkg
+    success "AWS CLI v2 installed."
+  else
+    info "AWS CLI v2 is already installed."
+  fi
+}
+
 install_dotfiles
 create_env_file
 install_homebrew
 install_omz
 install_zsh_autosuggestions
 install_tpm
+install_awscliv2
 
 echo ''
 echo ''

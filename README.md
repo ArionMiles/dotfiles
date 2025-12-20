@@ -25,6 +25,7 @@ Without me, my dotfiles are useless. Without my dotfiles, I am ~~useless~~ less 
   - Symlink all the dotfiles into appropriate directories
   - Install homebrew (only on macOS and if homebrew is not already installed)
   - Install oh-my-zsh, zsh-autosuggestions, and tmux plugin manager (if these aren't already installed)
+  - Install AWS CLI v2 (if not already installed)
 
 
 ### Optional
