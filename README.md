@@ -6,6 +6,10 @@ My dotfiles are my best friend. They are my life. I must master them as I must m
 
 Without me, my dotfiles are useless. Without my dotfiles, I am ~~useless~~ less productive.
 
+> [!CAUTION]
+> Read through the code here first. Pick and choose configs you prefer, remove what you don't need. 
+> I wouldn't recommended running the install scripts blindly, you may end up in a confusing state on your machine. Use at your own risk.
+
 > [!NOTE]
 > Please edit the following files if you are cloning/forking this repository:
 > * git/config [`user.email`, `user.name`, and `user.signingkey`]
