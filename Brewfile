@@ -1,10 +1,15 @@
 tap "amir20/dtop"
+tap "hashicorp/tap"
 tap "joshmedeski/sesh"
 tap "nikitabobko/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 # TIFF library and utilities
 brew "libtiff"
+# Zstandard is a real-time compression algorithm
+brew "zstd"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
 # New file format for still image compression
 brew "jpeg-xl"
 # Codec library for encoding and decoding AV1 video streams
@@ -25,8 +30,12 @@ brew "fastfetch"
 brew "fd"
 # Validating, recursive, caching DNS resolver
 brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Framework for layout and rendering of i18n text
+brew "pango"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
 # Play, record, convert, and stream audio and video
@@ -35,26 +44,50 @@ brew "ffmpeg"
 brew "findutils"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew "go-task"
+# Kubernetes package manager
+brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Postgres C API library
+brew "libpq", link: true
+# Apache Kafka C/C++ library
+brew "librdkafka"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
 # Python version management
 brew "pyenv"
 # Generic machine emulator and virtualizer
@@ -65,16 +98,26 @@ brew "resvg"
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Tail multiple Kubernetes pods & their containers
+brew "stern"
 # Terminal multiplexer
 brew "tmux"
 # Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Terraform
+brew "hashicorp/tap/terraform"
+# Vault
+brew "hashicorp/tap/vault"
 # Smart terminal session manager
 brew "joshmedeski/sesh/sesh"
 # App for managing battery charging
@@ -89,3 +132,15 @@ cask "rectangle"
 go "github.com/go-delve/delve/cmd/dlv"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
+go "github.com/spf13/cobra-cli"
+go "github.com/daixiang0/gci"
+go "github.com/tetafro/godot/cmd/godot"
+go "mvdan.cc/gofumpt"
+go "github.com/netskope/goproject"
+go "github.com/securego/gosec/v2/cmd/gosec"
+go "golang.org/x/vuln/cmd/govulncheck"
+go "github.com/golang/mock/mockgen"
+go "github.com/netskope/nsgocoverreport"
+go "google.golang.org/protobuf/cmd/protoc-gen-go"
+go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+go "github.com/mgechev/revive"
