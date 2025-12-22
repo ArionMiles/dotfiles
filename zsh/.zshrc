@@ -124,12 +124,20 @@ fi
 if command -v fzf > /dev/null 2>&1; then
   source <(fzf --zsh)
   export FZF_DEFAULT_OPTS="--layout=reverse --border=bold --border=rounded --margin=3% --color=dark"
-  source $DOTFILES/fzf/fzf-git.sh
+  source $DOTFILES/scripts/fzf-git.sh
 fi
 
 # Setup zoxide if found
 if command -v zoxide > /dev/null 2>&1; then
   eval "$(zoxide init --cmd cd zsh)"
+fi
+
+# Setup kube-ps1 if found
+if command -v kubectl > /dev/null 2>&1; then
+  source $DOTFILES/scripts/kube-ps1.sh
+  KUBE_PS1_HIDE_IF_NOCONTEXT=true
+  # Add kube-ps1 to right prompt
+  RPROMPT='$(kube_ps1)'
 fi
 
 # Open a tmux session by default
