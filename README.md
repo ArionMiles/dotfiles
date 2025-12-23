@@ -1,6 +1,6 @@
 # dotfiles
 
-These are my dotfiles. There are many like it, but this one is mine. 
+This is my dotfiles repo. There are many like it, but this one is mine. 
 
 My dotfiles are my best friend. They are my life. I must master them as I must master my life. 
 
