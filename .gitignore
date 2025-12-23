@@ -1,2 +1,5 @@
 .DS_Store
 tmux/plugins
+# Ignore workplace specific scripts and configs
+# This directory will often contain internal tools and scripts
+work/
