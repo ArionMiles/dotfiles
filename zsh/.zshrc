@@ -169,3 +169,11 @@ export GPG_TTY
 # Set Locale
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
+
+
+# Source any .sh files from $DOTFILES/work/ directory (depth 1 only)
+if [ -d "$DOTFILES/work" ]; then
+  for file in "$DOTFILES/work"/*.sh; do
+    [ -f "$file" ] && source "$file"
+  done
+fi
