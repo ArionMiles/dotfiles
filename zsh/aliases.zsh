@@ -9,6 +9,22 @@ alias path='echo -e ${PATH//:/\\n}'
 # Get week number
 alias week='date +%V'
 
+# GitHub CLI
+alias vpr="gh pr view -w"
+alias cpr="gh pr create"
+
+alias tidy="go mod tidy"
+
+# Kubernetes
+alias k="kubectl"
+alias kn="kubectl config set-context --current --namespace"
+alias kgp="kubectl get pods -L version"
+alias kgj="kubectl get jobs -L version"
+alias kg="kubectl get"
+alias kd="kubectl describe"
+alias kl="kubectl logs"
+
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -22,4 +38,3 @@ fi
 alias l="ls -lAF ${colorflag}"
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
-
