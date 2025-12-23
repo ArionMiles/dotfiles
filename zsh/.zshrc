@@ -86,7 +86,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	git
 	zsh-autosuggestions
-	aws
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -132,13 +131,27 @@ if command -v zoxide > /dev/null 2>&1; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
 
-# Setup kube-ps1 if found
-if command -v kubectl > /dev/null 2>&1; then
-  source $DOTFILES/scripts/kube-ps1.sh
+# Setup kube-ps1 if found and not already set
+if command -v kubectl > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/kube-ps1.sh" ] && ! typeset -f kube_ps1 >/dev/null; then
+  source "$DOTFILES/scripts/kube-ps1.sh"
   KUBE_PS1_HIDE_IF_NOCONTEXT=true
   # Add kube-ps1 to right prompt
-  RPROMPT='$(kube_ps1)'
+  RPROMPT='$(kube_ps1)'$RPROMPT
 fi
+
+# Setup aws-ps1 if found and not already set
+if command -v aws > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/aws.zsh" ] && ! typeset -f aws_prompt_info >/dev/null; then
+  source "$DOTFILES/scripts/aws.zsh"
+fi
+
+# Setup kubectl autocomplete if found
+if command -v kubectl > /dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
+
+# kubejumper shell integration
+[ -f $HOME/.config/kubejumper/kubejumper.sh ] && source $HOME/.config/kubejumper/kubejumper.sh
+
 
 # Open a tmux session by default
 if command -v tmux >/dev/null 2>&1; then
