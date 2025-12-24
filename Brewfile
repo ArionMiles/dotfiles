@@ -120,6 +120,8 @@ brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/vault"
 # Smart terminal session manager
 brew "joshmedeski/sesh/sesh"
+# Command-line interface for 1Password
+cask "1password-cli"
 # App for managing battery charging
 cask "batfi"
 # A terminal-based Docker container monitoring tool
