@@ -1,1 +1,1 @@
-$DOTFILES/bin/notify.sh=$HOME/.local/bin
+$DOTFILES/bin/notify.sh=$HOME/.local/bin/notify
