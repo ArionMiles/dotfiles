@@ -102,6 +102,8 @@ brew "sevenzip"
 brew "shellcheck"
 # Tail multiple Kubernetes pods & their containers
 brew "stern"
+# Official tldr client written in Rust
+brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
 # Tools for the WireGuard secure network tunnel
