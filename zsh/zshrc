@@ -1,0 +1,80 @@
+source_if_exists () {
+    if test -r "$1"; then
+        source "$1"
+    fi
+}
+
+source_if_exists $HOME/.env.sh
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+	git
+	zsh-autosuggestions
+)
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+source $ZSH/oh-my-zsh.sh
+
+source_if_exists $DOTFILES/zsh/aliases.zsh
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in $DOTFILES/zsh/{path,bash_prompt,exports,aliases,functions,extra}.sh; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+done;
+unset file
+
+# Setup pyenv if found
+if command -v pyenv > /dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
+
+# Set up fzf if found
+if command -v fzf > /dev/null 2>&1; then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_OPTS="--layout=reverse --border=bold --border=rounded --margin=3% --color=dark"
+  source $DOTFILES/scripts/fzf-git.sh
+fi
+
+# Setup zoxide if found
+if command -v zoxide > /dev/null 2>&1; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
+
+# Setup kube-ps1 if found and not already set
+if command -v kubectl > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/kube-ps1.sh" ] && ! typeset -f kube_ps1 >/dev/null; then
+  source "$DOTFILES/scripts/kube-ps1.sh"
+  KUBE_PS1_HIDE_IF_NOCONTEXT=true
+  # Add kube-ps1 to right prompt
+  RPROMPT='$(kube_ps1)'$RPROMPT
+fi
+
+# Setup aws-ps1 if found and not already set
+if command -v aws > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/aws.zsh" ] && ! typeset -f aws_prompt_info >/dev/null; then
+  source "$DOTFILES/scripts/aws.zsh"
+fi
+
+# Setup kubectl autocomplete if found
+if command -v kubectl > /dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
+
+# kubejumper shell integration
+[ -f $HOME/.config/kubejumper/kubejumper.sh ] && source $HOME/.config/kubejumper/kubejumper.sh
+
+
+# Open a tmux session by default
+if command -v tmux >/dev/null 2>&1; then
+  # If not already inside a tmux session
+  if [ -z "$TMUX" ]; then
+    # Try to attach to an existing session named 'default'
+    tmux attach-session -t default || tmux new-session -s default
+  fi
+fi

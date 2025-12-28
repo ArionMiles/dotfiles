@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 alias vi="nvim"
 alias gs="git status"
 alias nf='fzf -m --preview="bat --color=always {}" --bind "enter:become(nvim {+})"'
@@ -34,6 +36,6 @@ else # macOS `ls`
 fi
 
 # List all files colorized in long format
-alias l="ls -lAF ${colorflag}"
+alias l='ls -lAF ${colorflag}'
 # Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+alias ls='command ls ${colorflag}'
