@@ -1,2 +1,3 @@
 $DOTFILES/zsh/zshrc=$HOME/.zshrc
 $DOTFILES/zsh/zprofile=$HOME/.zprofile
+$DOTFILES/zsh/hushlogin=$HOME/.hushlogin
