@@ -1,2 +1,2 @@
-$DOTFILES/zsh/.zshrc=$HOME/.zshrc
-$DOTFILES/zsh/.zprofile=$HOME/.zprofile
+$DOTFILES/zsh/zshrc=$HOME/.zshrc
+$DOTFILES/zsh/zprofile=$HOME/.zprofile
