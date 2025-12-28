@@ -71,10 +71,6 @@ if command -v kubectl > /dev/null 2>&1; then
   source <(kubectl completion zsh)
 fi
 
-# kubejumper shell integration
-[ -f $HOME/.config/kubejumper/kubejumper.sh ] && source $HOME/.config/kubejumper/kubejumper.sh
-
-
 # Open a tmux session by default
 if command -v tmux >/dev/null 2>&1; then
   # If not already inside a tmux session
