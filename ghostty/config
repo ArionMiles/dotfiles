@@ -19,8 +19,8 @@ macos-icon = xray
 macos-option-as-alt = true
 
 # Shady stuff
-custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
-custom-shader = ~/.config/ghostty/shaders/bloom.glsl
+#custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
+#custom-shader = ~/.config/ghostty/shaders/bloom.glsl
 
 # Play nice with SSH and other things
 shell-integration-features = ssh-terminfo,ssh-env,no-cursor
