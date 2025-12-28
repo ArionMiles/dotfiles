@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Create the .zcompdump files under this directory so ~ is clean
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-
 # Neovim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export EDITOR="nvim"
