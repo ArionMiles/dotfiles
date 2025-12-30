@@ -20,6 +20,9 @@ macos-titlebar-proxy-icon = hidden
 macos-icon = xray
 macos-option-as-alt = true
 
+# Keybinds
+keybind = global:cmd+shift+backquote=toggle_quick_terminal
+
 # Shady stuff
 #custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
 #custom-shader = ~/.config/ghostty/shaders/bloom.glsl
