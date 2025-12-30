@@ -8,6 +8,8 @@ clipboard-trim-trailing-spaces = true
 mouse-hide-while-typing = true
 cursor-style-blink = true
 cursor-style = block
+quit-after-last-window-closed = true
+confirm-close-surface = false
 
 # GTK specific config
 gtk-titlebar = false
