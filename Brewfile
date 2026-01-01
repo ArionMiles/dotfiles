@@ -82,6 +82,8 @@ brew "neofetch"
 brew "neovim"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
+# Paste PNG into files
+brew "pngpaste"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Framework for managing multi-language pre-commit hooks
