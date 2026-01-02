@@ -57,3 +57,39 @@ function webm2mp4() {
     ffmpeg -i "$f" -c:v copy -c:a copy "$out"
   done
 }
+
+remindme() {
+  if [[ $# -lt 2 ]]; then
+    echo "Usage: remindme 'in 5hrs' 'your reminder message'"
+    return 1
+  fi
+
+  local timedesc="$1"
+  shift
+  local message="$*"
+
+  # Parse time: extract number and unit
+  local num="${timedesc//[^0-9]/}"
+  local unit="${timedesc//[0-9]/}"
+  unit="${unit//in/}"
+  unit="${unit// /}"
+  unit=$(echo $unit | tr '[:upper:]' '[:lower:]')
+
+  # Map unit to seconds multiplier
+  local secs_per_unit
+  case $unit in
+    s|sec) secs_per_unit=1 ;;
+    m|min) secs_per_unit=60 ;;
+    h|hr|hrs) secs_per_unit=3600 ;;
+    d|day|days) secs_per_unit=86400 ;;
+    *) echo "Unsupported unit: $unit (use sec/min/hrs/days)"; return 1 ;;
+  esac
+
+  local total_secs=$(( num * secs_per_unit ))
+
+  # Fire in background
+  (
+    sleep $total_secs
+    notify "$message"
+  ) &>/dev/null &
+}
