@@ -58,6 +58,7 @@ function webm2mp4() {
   done
 }
 
+# Doesn't work during sleep.
 remindme() {
   if [[ $# -lt 2 ]]; then
     echo "Usage: remindme 'in 5hrs' 'your reminder message'"
@@ -93,3 +94,7 @@ remindme() {
     notify "$message"
   ) &>/dev/null &
 }
+
+# fzf previewer for writing jq queries
+jqf() { : | fzf --disabled --print-query --preview "jq -C {q} \"$1\" 2>&1" --preview-window=up:90%; }
+
