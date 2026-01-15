@@ -96,5 +96,59 @@ remindme() {
 }
 
 # fzf previewer for writing jq queries
-jqf() { : | fzf --disabled --print-query --preview "jq -C {q} \"$1\" 2>&1" --preview-window=up:90%; }
+function jqf() { : | fzf --disabled --print-query --preview "jq -C {q} \"$1\" 2>&1" --preview-window=up:90%; }
 
+# Use fzf to search and exec into a k8s pod.
+# Accepts argument for type of shell, e.g: bash, ash, etc.
+# Default shell is /bin/sh -- This is almost universal so guaranteed to work
+# even in the absence of an argument.
+# Expected kubectl context & namespace to already be set.
+function kexecf() {
+  local shell_cmd=("$@")
+  if [[ ${#shell_cmd[@]} -eq 0 ]]; then
+    shell_cmd=(/bin/sh)
+  fi
+
+  local pod
+  pod=$(kubectl get pods -o name |\
+   fzf --tmux center,60%,border-native \
+            --border-label "exec -it" \
+            --header "Select pod:" \
+            --header-border rounded \
+            --bind 'tab:down,btab:up'\
+   | awk '{print $1}'
+   )
+
+  if [[ -z "$pod" ]]; then
+    echo "No pod selected."
+    return 1
+  fi
+
+  kubectl exec -it "$pod" -- "${shell_cmd[@]}"
+}
+
+ function kdf() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: kdf <api-resource>"
+    echo "Run 'kubectl api-resources' to list available resources."
+    return 1
+  fi
+
+  local resource="$1"
+  local val
+  val=$(kubectl get "$resource" -o name |\
+   fzf --tmux center,60%,border-native \
+            --border-label "Describe ${resource}" \
+            --header "Select ${resource}:" \
+            --header-border rounded \
+            --bind 'tab:down,btab:up'\
+   | awk '{print $1}'
+   )
+
+  if [[ -z "$val" ]]; then
+    echo "No ${resource} selected."
+    return 1
+  fi
+
+  kubectl describe "$val"
+ }
