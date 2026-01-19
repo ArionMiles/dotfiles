@@ -11,22 +11,20 @@ source_if_exists $HOME/.env.sh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	zsh-autosuggestions
-)
+# plugins=(
+# 	git
+# 	zsh-autosuggestions
+# )
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-# Create the .zcompdump files under this directory so ~ is clean
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+# export ZSH="$HOME/.oh-my-zsh"
+# # Create the .zcompdump files under this directory so ~ is clean
+# export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
-source $ZSH/oh-my-zsh.sh
-
-source_if_exists $DOTFILES/zsh/aliases.zsh
+# source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -48,28 +46,31 @@ if command -v fzf > /dev/null 2>&1; then
   source $DOTFILES/scripts/fzf-git.sh
 fi
 
+# Activate autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Setup zoxide if found
 if command -v zoxide > /dev/null 2>&1; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
 
-# Setup kube-ps1 if found and not already set
-if command -v kubectl > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/kube-ps1.sh" ] && ! typeset -f kube_ps1 >/dev/null; then
-  source "$DOTFILES/scripts/kube-ps1.sh"
-  KUBE_PS1_HIDE_IF_NOCONTEXT=true
-  # Add kube-ps1 to right prompt
-  RPROMPT='$(kube_ps1)'$RPROMPT
-fi
+# # Setup kube-ps1 if found and not already set
+# if command -v kubectl > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/kube-ps1.sh" ] && ! typeset -f kube_ps1 >/dev/null; then
+#   source "$DOTFILES/scripts/kube-ps1.sh"
+#   KUBE_PS1_HIDE_IF_NOCONTEXT=true
+#   # Add kube-ps1 to right prompt
+#   RPROMPT='$(kube_ps1)'$RPROMPT
+# fi
 
-# Setup aws-ps1 if found and not already set
-if command -v aws > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/aws.zsh" ] && ! typeset -f aws_prompt_info >/dev/null; then
-  source "$DOTFILES/scripts/aws.zsh"
-fi
+# # Setup aws-ps1 if found and not already set
+# if command -v aws > /dev/null 2>&1 && [ -f "$DOTFILES/scripts/aws.zsh" ] && ! typeset -f aws_prompt_info >/dev/null; then
+#   source "$DOTFILES/scripts/aws.zsh"
+# fi
 
-# Setup kubectl autocomplete if found
-if command -v kubectl > /dev/null 2>&1; then
-  source <(kubectl completion zsh)
-fi
+# # Setup kubectl autocomplete if found
+# if command -v kubectl > /dev/null 2>&1; then
+#   source <(kubectl completion zsh)
+# fi
 
 # Open a tmux session by default
 if command -v tmux >/dev/null 2>&1; then
@@ -79,3 +80,12 @@ if command -v tmux >/dev/null 2>&1; then
     tmux attach-session -t default || tmux new-session -s default
   fi
 fi
+
+# Check that the function `starship_zle-keymap-select()` is defined.
+# xref: https://github.com/starship/starship/issues/3418
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
+
+eval "$(starship init zsh)"

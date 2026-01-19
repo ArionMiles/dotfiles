@@ -159,26 +159,6 @@ install_homebrew () {
   fi
 }
 
-install_omz () {
-  if [ -d "$HOME/.oh-my-zsh" ]; then
-    info "Oh My Zsh is already installed."
-  else
-    info "Installing Oh My Zsh"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
-    success "Oh My Zsh installed."
-  fi
-}
-
-install_zsh_autosuggestions () {
-  if [ -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
-    info "zsh-autosuggestions is already installed."
-  else
-    info "Installing zsh-autosuggestions"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    success "zsh-autosuggestions installed."
-  fi
-}
-
 install_tpm () {
   if [ -d "$HOME/.config/tmux/plugins/tpm" ]; then
     info "Tmux Plugin Manager is already installed."
@@ -204,8 +184,6 @@ install_awscliv2 () {
 install_dotfiles
 create_env_file
 install_homebrew
-install_omz
-install_zsh_autosuggestions
 install_tpm
 install_awscliv2
 

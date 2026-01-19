@@ -8,6 +8,8 @@ export VISUAL="nvim"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X'
 
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
 GPG_TTY=$(tty)

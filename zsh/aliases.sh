@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
 
 alias vi="nvim"
 alias gs="git status"
@@ -25,7 +34,6 @@ alias kg="kubectl get"
 alias kd="kubectl describe"
 alias kl="kubectl logs"
 
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -39,3 +47,8 @@ fi
 alias l='ls -lAF ${colorflag}'
 # Always use color output for `ls`
 alias ls='command ls ${colorflag}'
+
+# List directory contents
+alias lsa='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
