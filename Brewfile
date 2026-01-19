@@ -102,6 +102,8 @@ brew "ripgrep"
 brew "sevenzip"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Tail multiple Kubernetes pods & their containers
 brew "stern"
 # Official tldr client written in Rust
@@ -118,6 +120,8 @@ brew "yq"
 brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
 # Terraform
 brew "hashicorp/tap/terraform"
 # Vault
