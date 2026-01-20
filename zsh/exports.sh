@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Neovim
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
