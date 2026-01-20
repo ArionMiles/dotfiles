@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# History settings
+export HISTSIZE=50000
+export SAVEHIST=10000
+
 # Neovim
 export EDITOR="nvim"
 export VISUAL="nvim"
