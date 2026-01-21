@@ -8,6 +8,7 @@ $golang\
 $rust\
 $package\
 $aws\
+$kubernetes\
 $docker_context\
 $jobs\
 $cmd_duration\
@@ -48,6 +49,7 @@ symbol = ' '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 pyenv_version_name = true
 pyenv_prefix = ''
+disabled = true
 
 
 [golang]
@@ -64,7 +66,12 @@ symbol = '󰏗 '
 [aws]
 symbol = ' '
 style = 'yellow'
-format = '[$symbol($profile )(\[$duration\] )]($style)'
+format = '[$symbol($profile:$region )(\[$duration\] )]($style)'
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context:$namespace ]($style)'
+
 
 [docker_context]
 symbol = ' '
