@@ -16,3 +16,12 @@ source $DOTFILES/scripts/fzf-git.fish
 if test -e $DOTFILES/fish/extras.fish
     source $DOTFILES/fish/extras.fish
 end
+
+# Open a tmux session by default
+if command -q tmux
+    # If not already inside a tmux session
+    if test -z "$TMUX"
+        # Try to attach to an existing session named 'default'
+        tmux attach-session -t default; or tmux new-session -s default
+    end
+end
