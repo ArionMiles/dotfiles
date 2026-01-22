@@ -12,8 +12,8 @@ alias -g ......='../../../../..'
 alias vi="nvim"
 alias gs="git status"
 alias nf='fzf -m --preview="bat --color=always {}" --bind "enter:become(nvim {+})"'
-# Index all directories recursively for zoxide
-alias zad="ls -d */ | xargs -I {} zoxide add {}"
+# Index all directories inside pwd for zoxide
+alias zad='find . -mindepth 1 -maxdepth 1 -type d -exec zoxide add "{}" \;'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 # Get week number
