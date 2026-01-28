@@ -130,6 +130,8 @@ brew "hashicorp/tap/vault"
 brew "joshmedeski/sesh/sesh"
 # Command-line interface for 1Password
 cask "1password-cli"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace"
 # App for managing battery charging
 cask "batfi"
 # A terminal-based Docker container monitoring tool
