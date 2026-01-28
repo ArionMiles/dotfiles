@@ -54,6 +54,10 @@ if.app-name-regex-substring = 'whatsapp'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'signal'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'discord'
 run = 'layout floating'
 
