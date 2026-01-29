@@ -1,4 +1,5 @@
 tap "amir20/dtop"
+tap "go-task/tap"
 tap "hashicorp/tap"
 tap "joshmedeski/sesh"
 tap "nikitabobko/tap"
@@ -120,8 +121,8 @@ brew "yq"
 brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# Fish-like fast/unobtrusive autosuggestions for zsh
-brew "zsh-autosuggestions"
+# GNU File, Shell, and Text utilities
+brew "fish"
 # Terraform
 brew "hashicorp/tap/terraform"
 # Vault
@@ -141,18 +142,3 @@ cask "font-fira-code-nerd-font"
 cask "halloy"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-go "github.com/go-delve/delve/cmd/dlv"
-go "golang.org/x/tools/gopls"
-go "honnef.co/go/tools/cmd/staticcheck"
-go "github.com/spf13/cobra-cli"
-go "github.com/daixiang0/gci"
-go "github.com/tetafro/godot/cmd/godot"
-go "mvdan.cc/gofumpt"
-go "github.com/netskope/goproject"
-go "github.com/securego/gosec/v2/cmd/gosec"
-go "golang.org/x/vuln/cmd/govulncheck"
-go "github.com/golang/mock/mockgen"
-go "github.com/netskope/nsgocoverreport"
-go "google.golang.org/protobuf/cmd/protoc-gen-go"
-go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
-go "github.com/mgechev/revive"
