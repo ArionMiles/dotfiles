@@ -50,6 +50,10 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
+    if.app-name-regex-substring = 'TextEdit'
+    run = 'layout floating'
+
+[[on-window-detected]]
     if.app-name-regex-substring = 'whatsapp'
     run = 'layout floating'
 
