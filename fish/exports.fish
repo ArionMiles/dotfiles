@@ -19,3 +19,4 @@ set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 
 set -gx FZF_DEFAULT_OPTS '--layout=reverse --border=bold --border=rounded --margin=3% --color=dark'
+set -gx FZF_DEFAULT_COMMAND 'fd --type f'
