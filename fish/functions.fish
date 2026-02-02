@@ -9,7 +9,7 @@ function reloadfish
     end
 end
 
-# # Kill process running on a given port
+# Kill process running on a given port
 function killp
     lsof -ti :$argv[1] | xargs kill -9
 end
@@ -23,7 +23,7 @@ function pbpng
     pngpaste - | curl -F 'file=@-;filename=clipboard.png' https://x0.at/ | tee (pbcopy)
 end
 
-# # Convert MKV to MP4
+# Convert MKV to MP4
 function mkv2mp4
     if test (count $argv) -lt 1
         echo "Usage: mkv2mp4 file1.mkv [file2.mkv ...]"
@@ -49,7 +49,7 @@ function mkv2mp4
     end
 end
 
-# # Convert WEBM to MP4
+# Convert WEBM to MP4
 function webm2mp4
     if test (count $argv) -lt 1
         echo "Usage: webm2mp4 file1.webm [file2.webm ...]"
@@ -75,7 +75,7 @@ function webm2mp4
     end
 end
 
-# # Remind you of something after a delay
+# Remind you of something after a delay
 function remindme
     if test (count $argv) -lt 2
         echo "Usage: remindme 'in 5hrs' 'your reminder message'"
@@ -119,9 +119,9 @@ function jqf
         --preview-window=up:90%
 end
 
-# # Use fzf to search and exec into a k8s pod
-# # Accepts argument for type of shell, e.g: bash, ash, etc.
-# # Default shell is /bin/sh
+# Use fzf to search and exec into a k8s pod
+# Accepts argument for type of shell, e.g: bash, ash, etc.
+# Default shell is /bin/sh
 function kexecf
     set shell_cmd /bin/sh
     if test (count $argv) -gt 0
@@ -144,7 +144,7 @@ function kexecf
     kubectl exec -it "$pod" -- $shell_cmd
 end
 
-# # Use fzf to select and describe a k8s resource
+# Use fzf to select and describe a k8s resource
 function kdf
     if test -z "$argv[1]"
         echo "Usage: kdf <api-resource>"
