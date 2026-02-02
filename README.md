@@ -39,6 +39,8 @@ Install/upgrade all the packages under `Brewfile` with:
 brew bundle install
 ```
 
+Run `./set-macos-preferences.sh` to change the defaults for a lot of stuff on MacOS. 
+
 ## Credits
 
  - A few ideas here are inspired from my good friend [oxalorg/dotfiles](https://github.com/oxalorg/dotfiles)
