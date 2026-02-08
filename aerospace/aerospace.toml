@@ -107,7 +107,7 @@ automatically-unhide-macos-hidden-apps = true
  
 [[on-window-detected]]
     if.app-name-regex-substring = 'Halloy'
-    run = ['layout floating', 'move-node-to-workspace T']
+    run = ['layout floating', 'move-node-to-workspace Y']
  
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
