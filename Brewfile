@@ -107,6 +107,8 @@ brew "shellcheck"
 brew "starship"
 # Tail multiple Kubernetes pods & their containers
 brew "stern"
+# Parser generator tool
+brew "tree-sitter-cli"
 # Official tldr client written in Rust
 brew "tlrc"
 # Terminal multiplexer
