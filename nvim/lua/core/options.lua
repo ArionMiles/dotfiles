@@ -68,3 +68,10 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+# Convert tabs to spaces
+vim.opt.tabstop = 4      -- number of space characters per tab
+vim.opt.shiftwidth = 4   -- spaces per indentation level
+vim.opt.expandtab = true -- expand tab input with space characters
+vim.opt.filetype.plugin = true
+vim.opt.filetype.indent = true
