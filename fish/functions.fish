@@ -131,3 +131,70 @@ function kdf
 
     kubectl describe "$val"
 end
+
+# Trigger a GitHub Actions workflow and wait for it to complete
+# Usage: genbuild [--workflow <file>]
+#   --workflow  Explicit workflow filename (skips auto-detection)
+#   Auto-detects ci.yml or build.yml (in that order) if they have a workflow_dispatch trigger
+function genbuild
+    set workflow ""
+
+    set i 1
+    while test $i -le (count $argv)
+        if test "$argv[$i]" = "--workflow"
+            set i (math $i + 1)
+            if test $i -le (count $argv)
+                set workflow $argv[$i]
+            else
+                echo "genbuild: --workflow requires an argument"
+                return 1
+            end
+        end
+        set i (math $i + 1)
+    end
+
+    if test -z "$workflow"
+        for candidate in ci.yml build.yml
+            set wf_path ".github/workflows/$candidate"
+            if test -f "$wf_path"
+                if grep -q "workflow_dispatch" "$wf_path"
+                    set workflow $candidate
+                    break
+                end
+            end
+        end
+
+        if test -z "$workflow"
+            echo "genbuild: no ci.yml or build.yml with a workflow_dispatch trigger found"
+            echo "          use --workflow <file> to specify one explicitly"
+            return 1
+        end
+    end
+
+    set branch (git rev-parse --abbrev-ref HEAD)
+
+    gh workflow run $workflow --ref $branch
+    or begin
+        notify "genbuild: failed to trigger $workflow on $branch"
+        return 1
+    end
+
+    echo "Triggered $workflow on $branch, waiting for run to appear..."
+    sleep 5
+
+    set run_id (gh run list --workflow=$workflow --branch=$branch --limit=1 --json databaseId --jq '.[0].databaseId')
+    if test -z "$run_id"
+        notify "genbuild: could not find workflow run on $branch"
+        return 1
+    end
+
+    echo "Watching run $run_id..."
+    gh run watch $run_id
+
+    set result (gh run view $run_id --json conclusion --jq '.conclusion')
+    if test "$result" = success
+        notify "genbuild: $workflow succeeded on $branch"
+    else
+        notify "genbuild: $workflow $result on $branch"
+    end
+end
