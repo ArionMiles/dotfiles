@@ -1,0 +1,123 @@
+{
+  "awsAuthRefresh": "aws sso login --profile claude",
+  "env": {
+    "CLAUDE_CODE_USE_BEDROCK": "1",
+    "AWS_REGION": "us-east-1",
+    "AWS_PROFILE": "claude",
+    "ANTHROPIC_MODEL": "us.anthropic.claude-sonnet-4-6[1m]",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "64000",
+    "MAX_THINKING_TOKENS": "8192",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "_ZO_DOCTOR": "0",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:14317",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_LOG_TOOL_DETAILS": "1",
+    "OTEL_LOG_USER_PROMPTS": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rg:*)",
+      "Bash(fd:*)",
+      "Bash(wc:*)",
+      "Bash(cat:*)",
+      "Bash(cd:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(go test:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(golangci-lint:*)",
+      "Bash(go build:*)",
+      "Bash(go doc:*)",
+      "Bash(go mod tidy:*)",
+      "Bash(go tool cover:*)",
+      "Bash(done)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checkout:*)",
+      "Bash(pytest:*)",
+      "Bash(cargo test:*)",
+      "Bash(make:*)",
+      "Bash(task :*)",
+      "Bash(sed:*)",
+      "Read(**)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Read(**/.env*)"
+    ]
+  },
+  "model": "opus",
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$DOTFILES/claude/notify.sh 'Claude needs your permission!'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$DOTFILES/claude/notify.sh 'Claude finished!'"
+          }
+        ]
+      }
+    ],
+    "TeammateIdle": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$DOTFILES/claude/notify.sh 'Teammate idle: $teammate_name'"
+          }
+        ]
+      }
+    ],
+    "TaskCompleted": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$DOTFILES/claude/notify.sh 'Task completed: $task_subject'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ $FILE == *.go ]]; then go fmt $FILE && go vet $FILE; fi"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "$DOTFILES/claude/starship-claude --config $DOTFILES/claude/starship.toml"
+  },
+  "enabledPlugins": {
+    "eng-skills@netskope": true
+  },
+  "bypassPermissionsModeAccepted": true,
+  "effortLevel": "medium"
+}
