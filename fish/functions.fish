@@ -74,42 +74,6 @@ function webm2mp4
     end
 end
 
-# Remind you of something after a delay
-function remindme
-    if test (count $argv) -lt 2
-        echo "Usage: remindme 'in 5hrs' 'your reminder message'"
-        return 1
-    end
-
-    set timedesc $argv[1]
-    set message $argv[2..-1]
-
-    # Parse time: extract number and unit
-    set num (echo $timedesc | grep -oE '[0-9]+')
-    set unit (echo $timedesc | sed 's/in//g' | sed 's/[0-9]//g' | sed 's/[[:space:]]//g' | tr '[:upper:]' '[:lower:]')
-
-    # Map unit to seconds multiplier
-    set secs_per_unit 1
-    switch $unit
-        case 's' 'sec'
-            set secs_per_unit 1
-        case 'm' 'min'
-            set secs_per_unit 60
-        case 'h' 'hr' 'hrs'
-            set secs_per_unit 3600
-        case 'd' 'day' 'days'
-            set secs_per_unit 86400
-        case '*'
-            echo "Unsupported unit: $unit (use sec/min/hrs/days)"
-            return 1
-    end
-
-    set total_secs (math "$num * $secs_per_unit")
-
-    # Fire in background
-    fish_run_bg sleep $total_secs; and notify "$message"
-end
-
 # FZF previewer for writing jq queries
 function jqf
     set -l file (string escape -- $argv[1])
