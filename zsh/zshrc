@@ -29,7 +29,11 @@ if command -v fzf > /dev/null 2>&1; then
 fi
 
 # Activate autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if command -v brew > /dev/null 2>&1; then
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # Setup zoxide if found
 if command -v zoxide > /dev/null 2>&1; then
