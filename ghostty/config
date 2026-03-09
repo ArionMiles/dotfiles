@@ -29,8 +29,17 @@ macos-titlebar-proxy-icon = hidden
 macos-icon = xray
 macos-option-as-alt = true
 
+# Shady stuff
+#custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
+#custom-shader = ~/.config/ghostty/shaders/bloom.glsl
+
+# Play nice with SSH and other things
+shell-integration-features = ssh-terminfo,ssh-env,no-cursor
+
+#
 # Keybinds
-keybind = global:cmd+shift+backquote=toggle_quick_terminal
+#
+keybind = global:alt+shift+q=toggle_quick_terminal
 
 # Navigate between panes (vim-style)
 keybind = ctrl+h=goto_split:left
@@ -38,9 +47,12 @@ keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
 keybind = ctrl+l=goto_split:right
 
-# Shady stuff
-#custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
-#custom-shader = ~/.config/ghostty/shaders/bloom.glsl
+# tmux-mode keybindings.
+keybind = ctrl+a=activate_key_table:tmux
+keybind = tmux/c=new_tab
+keybind = tmux/n=next_tab
+keybind = tmux/p=previous_tab
+keybind = tmux/escape=deactivate_key_table
+keybind = tmux/enter=deactivate_key_table
+keybind = tmux/catch_all=ignore
 
-# Play nice with SSH and other things
-shell-integration-features = ssh-terminfo,ssh-env,no-cursor
