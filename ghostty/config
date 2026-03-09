@@ -1,5 +1,6 @@
-font-family = FiraCode Nerd Font
+font-family = JetBrainsMono Nerd Font
 font-size = 14
+theme = TokyoNight
 window-save-state = always
 clipboard-read = "allow"
 clipboard-paste-protection = false
@@ -10,17 +11,28 @@ cursor-style = block
 quit-after-last-window-closed = true
 confirm-close-surface = false
 
+# Notify when a long running command finishes
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 2m
+
 # GTK specific config
 gtk-titlebar = false
 
 # MacOS specific config
-macos-titlebar-style = "hidden"
+macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-icon = xray
 macos-option-as-alt = true
 
 # Keybinds
 keybind = global:cmd+shift+backquote=toggle_quick_terminal
+
+# Navigate between panes (vim-style)
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
 
 # Shady stuff
 #custom-shader = ~/.config/ghostty/shaders/retro-terminal.glsl
