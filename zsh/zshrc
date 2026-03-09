@@ -41,13 +41,13 @@ if command -v zoxide > /dev/null 2>&1; then
 fi
 
 # Open a tmux session by default
-if command -v tmux >/dev/null 2>&1; then
-  # If not already inside a tmux session
-  if [ -z "$TMUX" ]; then
-    # Try to attach to an existing session named 'default'
-    tmux attach-session -t default || tmux new-session -s default
-  fi
-fi
+#if command -v tmux >/dev/null 2>&1; then
+#  # If not already inside a tmux session
+#  if [ -z "$TMUX" ]; then
+#    # Try to attach to an existing session named 'default'
+#    tmux attach-session -t default || tmux new-session -s default
+#  fi
+#fi
 
 # Check that the function `starship_zle-keymap-select()` is defined.
 # xref: https://github.com/starship/starship/issues/3418
