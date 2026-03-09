@@ -139,7 +139,7 @@ cask "nikitabobko/tap/aerospace"
 cask "batfi"
 # A terminal-based Docker container monitoring tool
 cask "dtop"
-cask "font-fira-code-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 # IRC client
 cask "halloy"
 # Move and resize windows using keyboard shortcuts or snap areas
