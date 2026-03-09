@@ -47,12 +47,7 @@ keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
 keybind = ctrl+l=goto_split:right
 
-# tmux-mode keybindings.
-keybind = ctrl+a=activate_key_table:tmux
-keybind = tmux/c=new_tab
-keybind = tmux/n=next_tab
-keybind = tmux/p=previous_tab
-keybind = tmux/escape=deactivate_key_table
-keybind = tmux/enter=deactivate_key_table
-keybind = tmux/catch_all=ignore
-
+# Use tmux shortcuts for creating/switching tabs
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>n=next_tab
+keybind = ctrl+a>p=previous_tab
