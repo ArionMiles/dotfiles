@@ -25,7 +25,7 @@
 - **Style:** - Use the imperative mood in the subject line.
   - Body sentences must end with a period.
   - **Prohibited:** Never add "🤖 Generated with..." or "Co-Authored-By" lines.
-- **Signing:** Always pass `--no-gpg-sign` when running `git commit`.
+- **Signing:** Always pass `--no-gpg-sign` when running `git commit`. For rebases, set `git -c commit.gpgSign=false rebase` to disable signing on all replay commits.
 - **Branch naming:** Always use `pr/<JIRA-TICKET>/<short-description>` format (e.g. `pr/ABC-12345/fix-feature-xyz`)
 
 ## Testing Strategy
