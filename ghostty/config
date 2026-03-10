@@ -51,3 +51,6 @@ keybind = ctrl+l=goto_split:right
 keybind = ctrl+a>c=new_tab
 keybind = ctrl+a>n=next_tab
 keybind = ctrl+a>p=previous_tab
+keybind = ctrl+a>\=new_split:right
+keybind = ctrl+a>-=new_split:down
+keybind = ctrl+a>z=toggle_split_zoom
