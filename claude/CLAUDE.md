@@ -21,7 +21,7 @@
 - **Style:** - Use the imperative mood in the subject line.
   - Body sentences must end with a period.
   - **Prohibited:** Never add "🤖 Generated with..." or "Co-Authored-By" lines.
-- **Signing:** Always pass `--no-gpg-sign` when running `git commit`.
+- **Signing:** Always pass `--no-gpg-sign` when running `git commit`. For rebases, set `git -c commit.gpgSign=false rebase` to disable signing on all replay commits.
 
 ## Testing Strategy
 Always run tests after modifying Go files using `go test ./...` before committing changes.
