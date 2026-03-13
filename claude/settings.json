@@ -1,10 +1,6 @@
 {
   "awsAuthRefresh": "aws sso login --profile claude",
   "env": {
-    "CLAUDE_CODE_USE_BEDROCK": "1",
-    "AWS_REGION": "us-east-1",
-    "AWS_PROFILE": "claude",
-    "ANTHROPIC_MODEL": "us.anthropic.claude-sonnet-4-6[1m]",
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "64000",
     "MAX_THINKING_TOKENS": "8192",
     "ENABLE_LSP_TOOL": "1",
@@ -56,7 +52,7 @@
       "Read(**/.env*)"
     ]
   },
-  "model": "opus",
+  "model": "sonnet[1m]",
   "hooks": {
     "PermissionRequest": [
       {
