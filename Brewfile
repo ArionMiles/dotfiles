@@ -107,6 +107,8 @@ brew "shellcheck"
 brew "starship"
 # Tail multiple Kubernetes pods & their containers
 brew "stern"
+# Open source continuous file synchronization application
+brew "syncthing", restart_service: :changed
 # Parser generator tool
 brew "tree-sitter-cli"
 # Official tldr client written in Rust
