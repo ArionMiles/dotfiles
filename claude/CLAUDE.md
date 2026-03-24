@@ -7,8 +7,10 @@
 - **Ambiguity Handling:** If a task is open to interpretation, present 2-3 prioritized options with brief reasoning. Wait for a preference before proceeding.
 
 ### 2. External Integration (Jira/Confluence)
-- **Automatic Retrieval:** If a prompt contains Atlassian Jira or Confluence links, automatically fetch the content using the Atlassian MCP or `acli`.
-- **Error Handling:** If the Atlassian MCP/CLI is non-functional, stop and ask for a fix before attempting to "hallucinate" the content of the link.
+- **Automatic Retrieval:** If a prompt contains Atlassian Jira or Confluence links, automatically fetch the content using `acli`.
+- **Preferred Tool:** Always use `acli`. Full command reference in `~/.claude/skills/acli.md`.
+- **Confluence cloudId bug:** If `acli confluence page view` returns "Activation id for cloudId null not found", follow the fallback chain: (1) `eng-skills:confluence` skill, (2) Confluence REST API via cURL. See `~/.claude/skills/acli.md` for cURL syntax.
+- **Error Handling:** Never hallucinate content from a link. If all fallbacks fail, stop and ask the user.
 
 ### 3. Execution Workflow
 - **No Unsanctioned Changes:** [CRITICAL] Propose a plan for *any* change first. Never execute file edits, deletions, or creations without explicit approval.
