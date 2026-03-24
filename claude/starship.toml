@@ -1,42 +1,52 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
+palette = "tokyo-night-moon"
 add_newline = false
 
-# Minimal style - clean and simple
 format = """
 $directory \
 $git_branch$git_status \
-${env_var.CLAUDE_MODEL} \
+${env_var.CLAUDE_MODEL_CONTEXT} \
 ${env_var.CLAUDE_CONTEXT} \
 ${env_var.CLAUDE_COST}\
 """
 
 [directory]
-style = "fg:sky"
+style = "fg:blue"
 format = "[$path]($style)"
 truncation_length = 2
 truncate_to_repo = true
 
 [git_branch]
 symbol = ""
-style = "fg:maroon"
+style = "fg:red"
 format = "[$branch]($style)"
 
 [git_status]
-style = "fg:maroon"
+style = "fg:red"
 format = "[($all_status$ahead_behind)]($style)"
 
-[env_var.CLAUDE_MODEL]
-variable = "CLAUDE_MODEL"
+[env_var.CLAUDE_MODEL_CONTEXT]
+variable = "CLAUDE_MODEL_CONTEXT"
 format = "[$env_value]($style)"
-style = "fg:sapphire"
+style = "fg:blue"
 
 [env_var.CLAUDE_CONTEXT]
 variable = "CLAUDE_CONTEXT"
 format = "[$env_value]($style)"
-style = "fg:peach"
+style = "fg:orange"
 
 [env_var.CLAUDE_COST]
 variable = "CLAUDE_COST"
 format = "[$env_value]($style)"
 style = "fg:green"
+
+[palettes.tokyo-night-moon]
+blue = "#82aaff"
+cyan = "#86e1fc"
+green = "#c3e88d"
+orange = "#ff9e64"
+red = "#ff757f"
+purple = "#c099ff"
+yellow = "#ffc777"
+teal = "#4fd6be"

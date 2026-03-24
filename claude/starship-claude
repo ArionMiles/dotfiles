@@ -297,6 +297,32 @@ if command -v jq >/dev/null 2>&1 && [ -n "$payload" ]; then
   else
     export CLAUDE_CONTEXT="  %"
   fi
+
+  # Context window size label
+  if [ -n "$context_size" ] && [ "$context_size" != "null" ]; then
+    if [ "$context_size" -ge 1000000 ]; then
+      export CLAUDE_CONTEXT_LABEL="1M"
+    else
+      export CLAUDE_CONTEXT_LABEL="200K"
+    fi
+  fi
+
+  # Combined model + context label: e.g. "󰚩 Sonnet 4.6 [1M]"
+  # Strip any trailing " (...context)" that Claude Code injects into display_name
+  display_name="${values[7]:-}"
+  display_name="${display_name/ (*context)/}"
+  # Prepend nerd font icon based on model family
+  icon=""
+  case "${lower_model:-}" in
+    *haiku*)  icon=" " ;;
+    *sonnet*) icon="󰚩 " ;;
+    *opus*)   icon="󱚦 " ;;
+  esac
+  if [ -n "$display_name" ] && [ -n "${CLAUDE_CONTEXT_LABEL:-}" ]; then
+    export CLAUDE_MODEL_CONTEXT="${icon}${display_name} [${CLAUDE_CONTEXT_LABEL}]"
+  elif [ -n "$display_name" ]; then
+    export CLAUDE_MODEL_CONTEXT="${icon}${display_name}"
+  fi
 fi
 
 # Allow overriding starship command for testing
