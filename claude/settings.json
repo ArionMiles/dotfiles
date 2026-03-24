@@ -52,7 +52,7 @@
       "Read(**/.env*)"
     ]
   },
-  "model": "sonnet[1m]",
+  "effort": "high",
   "hooks": {
     "PermissionRequest": [
       {
