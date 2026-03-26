@@ -40,11 +40,31 @@
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr checkout:*)",
+      "Bash(gh pr create:*)",
       "Bash(pytest:*)",
       "Bash(cargo test:*)",
       "Bash(make:*)",
-      "Bash(task :*)",
+      "Bash(task:*)",
       "Bash(sed:*)",
+      "Bash(grep:*)",
+      "Bash(jq:*)",
+      "Bash(head:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(git show:*)",
+      "Bash(tail:*)",
+      "Bash(go vet:*)",
+      "Bash(mkdir:*)",
+      "Bash(pwd:*)",
+      "Bash(echo:*)",
+      "Bash(file:*)",
+      "Bash(acli jira:*)",
+      "Bash(git checkout:*)",
+      "Bash(gh run:*)",
+      "Bash(git fetch:*)",
+      "Bash(git branch:*)",
+      "Bash(go get:*)",
+      "Bash(git push:*)",
       "Read(**)"
     ],
     "deny": [
@@ -52,7 +72,7 @@
       "Read(**/.env*)"
     ]
   },
-  "effort": "high",
+  "model": "us.anthropic.claude-opus-4-6-v1",
   "hooks": {
     "PermissionRequest": [
       {
@@ -117,5 +137,6 @@
     "pyright-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true
   },
+  "effortLevel": "high",
   "bypassPermissionsModeAccepted": true
 }
