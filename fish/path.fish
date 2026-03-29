@@ -17,5 +17,3 @@ fish_add_path /opt/nvim-linux-x86_64/bin
 
 # Added by Obsidian
 fish_add_path /Applications/Obsidian.app/Contents/MacOS
-
-fish_add_path (go env GOPATH)/bin
