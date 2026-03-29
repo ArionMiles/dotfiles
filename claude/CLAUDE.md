@@ -20,7 +20,6 @@
 ### 5. Preferred CLI Tools
 - Use `fd` instead of `find` for file search.
 - Use `rg` instead of `grep` for content search.
-- Always use GNU sed syntax when running `sed` (e.g., `sed -i 's/foo/bar/g'`, not BSD `sed -i ''`).
 
 ### 4. Git Standards
 - **Format:** Follow the [Tim Pope (tbaggery) standard](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
