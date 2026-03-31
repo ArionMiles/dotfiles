@@ -1,0 +1,4 @@
+$DOTFILES/package-managers/uv.toml=$HOME/.config/uv/uv.toml
+$DOTFILES/package-managers/npmrc=$HOME/.npmrc
+$DOTFILES/package-managers/pnpmrc=$HOME/Library/Preferences/pnpm/rc
+$DOTFILES/package-managers/bunfig.toml=$HOME/.bunfig.toml
