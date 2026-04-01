@@ -72,7 +72,7 @@
       "Read(**/.env*)"
     ]
   },
-  "model": "us.anthropic.claude-opus-4-6-v1",
+  "model": "opus",
   "hooks": {
     "PermissionRequest": [
       {
@@ -101,7 +101,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$DOTFILES/claude/notify.sh 'Teammate idle: $teammate_name'"
+            "command": "$DOTFILES/claude/notify.sh \"Teammate idle: $teammate_name\""
           }
         ]
       }
@@ -111,18 +111,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$DOTFILES/claude/notify.sh 'Task completed: $task_subject'"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [[ $FILE == *.go ]]; then go fmt $FILE && go vet $FILE; fi"
+            "command": "$DOTFILES/claude/notify.sh \"Task completed: $task_subject\""
           }
         ]
       }
