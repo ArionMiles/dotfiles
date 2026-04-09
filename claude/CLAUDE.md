@@ -32,9 +32,18 @@
 - **Dependencies:** Do not add new dependencies without explicit user approval, even if a library would simplify the implementation.
 
 ### 6. Taskfile
-- **Prefer task targets over bare commands.** Before running commands like `go test ./...`, `go fmt`, `pytest`, etc., check if a `Taskfile.yml` exists in the project root. If present, use the relevant `task` targets instead (e.g., `task fmt`, `task test:unit`).
+- **Prefer task targets over bare commands.** Before running commands like `go test ./...`, `go fmt`, `go build`, `pytest`, etc., check if a `Taskfile.yml` exists in the project root. If present, use the relevant `task` targets instead (e.g., `task lint`, `task fmt`, `task test:unit`).
 - **Why:** Task targets often use project-specific tooling (e.g., `gofumpt`/`gci` instead of `go fmt`), include bootstrapping steps, install missing dependencies, and ensure consistent behavior across machines. Bare commands may skip these steps and produce suboptimal results.
+- **Validation:** Use task targets for all validation steps — `task lint` instead of `golangci-lint run`, `task test` instead of `go test ./...`, `task fmt` instead of `go fmt`. Never use `go build` alone as a validation step; it does not catch lint issues or formatting errors.
 - **Discovery:** Run `task --list` to see available targets and pick the most appropriate one for the job.
+
+### 7. Debugging
+- **Observe before theorizing.** When behavior doesn't match expectations, add
+  logging/instrumentation at the confusion point before reasoning about mechanism.
+  Actual runtime state beats inferred state from code reading alone.
+- **Get the raw error first.** Before proposing a fix, retrieve the actual error
+  from the running system (server logs, stack traces). Secondhand descriptions
+  in commit messages or comments are frequently imprecise or wrong.
 
 ## Testing Strategy
 Follow a Test-Driven Development approach:
@@ -50,3 +59,10 @@ Follow a Test-Driven Development approach:
 - No TODO/FIXME left without a ticket reference.
 - Ensure all YAML/JSON configs are valid.
 - Check for breaking changes in API contracts.
+
+## Handoff
+- Target workflows that enable shorter session times with proper milestones.
+- Create `HANDOFF.md` files when user asks to "generate a handoff" which includes a summary of your work and a initial prompt to be used on a fresh conversation.
+- Prior to file generation, ask user: "What is the goal next session?"
+- Create succint summaries tailored towards the goal.
+- Create notes for frequently encountered problems or non-obvious caveats discovered in the current session.
