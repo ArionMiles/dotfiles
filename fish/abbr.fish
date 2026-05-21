@@ -7,6 +7,8 @@ abbr --add vi nvim
 
 # Git & GitHub CLI
 abbr --add gs git status
+abbr --add gswm git switch main
+abbr --add gswd git switch develop
 abbr --add vpr gh pr view -w
 abbr --add cpr gh pr create
 
