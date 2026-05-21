@@ -25,3 +25,8 @@ end
 #        tmux attach-session -t default; or tmux new-session -s default
 #    end
 #end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/kanishk/.lmstudio/bin
+# End of LM Studio CLI section
+
