@@ -70,7 +70,6 @@
       "Read(**/.env*)"
     ]
   },
-  "model": "us.anthropic.claude-sonnet-4-6",
   "hooks": {
     "PermissionRequest": [
       {
@@ -90,26 +89,6 @@
           {
             "type": "command",
             "command": "$DOTFILES/claude/notify.sh 'Claude finished!'"
-          }
-        ]
-      }
-    ],
-    "TeammateIdle": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$DOTFILES/claude/notify.sh \"Teammate idle: $teammate_name\""
-          }
-        ]
-      }
-    ],
-    "TaskCompleted": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$DOTFILES/claude/notify.sh \"Task completed: $task_subject\""
           }
         ]
       }
