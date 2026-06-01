@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PR="${1:-}"
+if [[ -z "$PR" ]]; then
+    echo "Usage: gh pr-ready <PR>"
+    exit 1
+fi
+
+REPO=$(gh repo view --json nameWithOwner --jq '.nameWithOwner')
+echo "Watching required checks for PR #$PR ($REPO)..."
+
+print_failure_summary() {
+    echo ""
+    echo "Failed checks:"
+    gh pr checks "$PR" --required --json name,state,link 2>/dev/null \
+        | jq -r '.[] | select(.state == "failure" or .state == "error" or .state == "timed_out" or .state == "cancelled") | "\(.name)\t\(.link)"' \
+        | while IFS=$'\t' read -r name link; do
+            echo ""
+            echo "  Check: $name"
+            run_id=$(echo "$link" | sed -E 's|.*/runs/([0-9]+).*|\1|')
+            if [[ -n "$run_id" && "$run_id" != "$link" ]]; then
+                echo "  Logs:"
+                gh run view "$run_id" --log-failed 2>/dev/null || echo "  (could not fetch logs)"
+            fi
+        done
+}
+
+while true; do
+    checks_json=$(gh pr checks "$PR" --required --json name,state,bucket 2>/dev/null)
+    pending=$(echo "$checks_json" | jq '[.[] | select(.bucket == "pending")] | length')
+
+    if [[ "$pending" -eq 0 ]]; then
+        failed=$(echo "$checks_json" | jq '[.[] | select(.bucket == "fail")] | length')
+        if [[ "$failed" -eq 0 ]]; then
+            notify "PR #$PR: all required checks passed"
+            echo "All required checks passed."
+        else
+            notify "PR #$PR: required checks failed"
+            print_failure_summary
+        fi
+        break
+    fi
+
+    echo "$(date '+%H:%M:%S') — $pending check(s) pending, next poll in 30s..."
+    sleep 30
+done

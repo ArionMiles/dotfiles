@@ -1,1 +1,4 @@
 $DOTFILES/bin/notify.sh=$HOME/.local/bin/notify
+$DOTFILES/bin/gh-dispatch=$HOME/.local/bin/gh-dispatch
+$DOTFILES/bin/gh-pr-ready=$HOME/.local/bin/gh-pr-ready
+$DOTFILES/bin/gh-pr-landed=$HOME/.local/bin/gh-pr-landed
