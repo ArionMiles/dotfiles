@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+WORKFLOW=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --workflow)
+            WORKFLOW="${2:?'--workflow requires an argument'}"
+            shift 2
+            ;;
+        *)
+            shift
+            ;;
+    esac
+done
+
+if [[ -z "$WORKFLOW" ]]; then
+    for candidate in ci.yml build.yml; do
+        wf_path=".github/workflows/$candidate"
+        if [[ -f "$wf_path" ]] && grep -q "workflow_dispatch" "$wf_path"; then
+            WORKFLOW="$candidate"
+            break
+        fi
+    done
+
+    if [[ -z "$WORKFLOW" ]]; then
+        echo "gh dispatch: no ci.yml or build.yml with a workflow_dispatch trigger found"
+        echo "             use --workflow <file> to specify one explicitly"
+        exit 1
+    fi
+fi
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+gh workflow run "$WORKFLOW" --ref "$BRANCH" || {
+    notify "gh dispatch: failed to trigger $WORKFLOW on $BRANCH"
+    exit 1
+}
+
+echo "Triggered $WORKFLOW on $BRANCH, waiting for run to appear..."
+sleep 5
+
+RUN_ID=$(gh run list --workflow="$WORKFLOW" --branch="$BRANCH" --limit=1 --json databaseId --jq '.[0].databaseId')
+if [[ -z "$RUN_ID" ]]; then
+    notify "gh dispatch: could not find workflow run on $BRANCH"
+    exit 1
+fi
+
+echo "Watching run $RUN_ID..."
+gh run watch "$RUN_ID"
+
+RESULT=$(gh run view "$RUN_ID" --json conclusion --jq '.conclusion')
+if [[ "$RESULT" == "success" ]]; then
+    notify "gh dispatch: $WORKFLOW succeeded on $BRANCH"
+else
+    notify "gh dispatch: $WORKFLOW $RESULT on $BRANCH"
+fi
