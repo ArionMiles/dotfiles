@@ -11,6 +11,8 @@
 # - `CLAUDE_CONTEXT` - Context window usage percentage (left-padded, e.g., "15%")
 # - `CLAUDE_COST` - Formatted session cost (e.g., "$0.71")
 # - `CLAUDE_SUMMARY` - Session summary extracted from transcript
+# - `CLAUDE_EFFORT` - Reasoning effort level, color-coded (e.g. "󰊚 high"); empty if unsupported
+# - `CLAUDE_THINKING` - Hot-pink brain icon when thinking is enabled; empty otherwise
 # - `CLAUDE_STAR` - Star character for prompt decoration
 #
 # Raw values (direct from JSON):
@@ -21,6 +23,7 @@
 # - `CLAUDE_WORKSPACE_PROJECT_DIR` - workspace.project_dir
 # - `CLAUDE_VERSION` - Claude Code version
 # - `CLAUDE_OUTPUT_STYLE` - Output style name
+# - `CLAUDE_EFFORT_LEVEL` - Raw effort level (low/medium/high/xhigh/max)
 # - `CLAUDE_MODEL_ID` - Full model identifier (e.g., "claude-sonnet-4-5-20250929")
 # - `CLAUDE_MODEL_DISPLAY_NAME` - Model display name (e.g., "Sonnet 4.5")
 # - `CLAUDE_COST_RAW` - Raw cost in USD (number)
@@ -166,13 +169,15 @@ if command -v jq >/dev/null 2>&1 && [ -n "$payload" ]; then
       (if .context_window.current_usage == null then "" else (.context_window.current_usage.cache_read_input_tokens // 0) end), # 21
       # Computed values (indexes 22-23)
       (.model.display_name // .model.id // ""),                     # 22 - raw_model
-      (.workspace.current_dir // .workspace.project_dir // .cwd // "") # 23 - dir
+      (.workspace.current_dir // .workspace.project_dir // .cwd // ""), # 23 - dir
+      (.effort.level // ""),                                        # 24 - reasoning effort level
+      (if .thinking.enabled == true then "true" else "" end)        # 25 - thinking enabled
     ] | .[]
   ')"
 
   # Parse jq output into an array (one element per line)
   # Initialize with defaults to handle partial/failed jq output
-  values=("" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "")
+  values=("" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "")
 
   # Only parse if jq produced output
   if [ -n "$jq_output" ]; then
@@ -214,6 +219,7 @@ if command -v jq >/dev/null 2>&1 && [ -n "$payload" ]; then
 
   raw_model="${values[22]:-}"
   dir="${values[23]:-}"
+  export CLAUDE_EFFORT_LEVEL="${values[24]:-}"
 
   # cd into workspace dir
   if [ -n "$dir" ] && [ -d "$dir" ]; then
@@ -247,6 +253,43 @@ if command -v jq >/dev/null 2>&1 && [ -n "$payload" ]; then
     else
       export CLAUDE_MODEL_NAME="$short_model"
     fi
+  fi
+
+  #
+  # Reasoning effort level: icon + word, color-coded to match the /effort UI.
+  # Colors baked in as truecolor ANSI (tokyo-night-moon palette) because
+  # starship's env_var module can only apply one static style, not per-value.
+  # Absent from JSON when the model doesn't support the effort parameter.
+  # NOTE: ultracode reports as "xhigh" in JSON, so it renders purple like xhigh.
+  #
+  # Colors are the exact theme tokens Claude Code uses for the /effort selector
+  # in the default dark theme: low=warning, medium=success, high=permission,
+  # xhigh/ultracode=autoAccept, max=rainbow-animated. Per-level rising gauge icons.
+  export CLAUDE_EFFORT=""
+  if [ -n "${CLAUDE_EFFORT_LEVEL:-}" ]; then
+    reset=$'\033[0m'
+    case "$CLAUDE_EFFORT_LEVEL" in
+    low)    export CLAUDE_EFFORT=$'\033[38;2;255;193;7m'"󰡳 low${reset}" ;;        # warning
+    medium) export CLAUDE_EFFORT=$'\033[38;2;78;186;101m'"󰡵 medium${reset}" ;;    # success
+    high)   export CLAUDE_EFFORT=$'\033[38;2;177;185;249m'"󰊚 high${reset}" ;;     # permission
+    xhigh)  export CLAUDE_EFFORT=$'\033[38;2;175;135;255m'"󰡴 xhigh${reset}" ;;    # autoAccept
+    max)
+      # "max" gets a static per-character rainbow (terminals can't animate it).
+      # Stops are Claude Code's exact rainbow_* tokens.
+      r=$'\033[38;2;235;95;87m'; y=$'\033[38;2;250;195;95m'
+      g=$'\033[38;2;145;200;130m'; b=$'\033[38;2;130;170;220m'
+      export CLAUDE_EFFORT="${r}󰉁 ${y}m${g}a${b}x${reset}"
+      ;;
+    *)      export CLAUDE_EFFORT="󰡳 ${CLAUDE_EFFORT_LEVEL}" ;;
+    esac
+  fi
+
+  #
+  # Thinking indicator: hot-pink brain icon, shown only when thinking is enabled.
+  #
+  export CLAUDE_THINKING=""
+  if [ "${values[25]:-}" = "true" ]; then
+    export CLAUDE_THINKING=$'\033[38;2;255;105;180m'""$'\033[0m'
   fi
 
   #

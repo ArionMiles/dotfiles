@@ -7,6 +7,8 @@ format = """
 $directory \
 $git_branch$git_status \
 ${env_var.CLAUDE_MODEL_CONTEXT} \
+${env_var.CLAUDE_EFFORT} \
+${env_var.CLAUDE_THINKING} \
 ${env_var.CLAUDE_CONTEXT} \
 ${env_var.CLAUDE_COST}\
 """
@@ -30,6 +32,16 @@ format = "[($all_status$ahead_behind)]($style)"
 variable = "CLAUDE_MODEL_CONTEXT"
 format = "[$env_value]($style)"
 style = "fg:blue"
+
+[env_var.CLAUDE_EFFORT]
+variable = "CLAUDE_EFFORT"
+# Color is baked into the value as ANSI; emit raw, no style wrapping.
+format = "$env_value"
+
+[env_var.CLAUDE_THINKING]
+variable = "CLAUDE_THINKING"
+# Color is baked into the value as ANSI; emit raw, no style wrapping.
+format = "$env_value"
 
 [env_var.CLAUDE_CONTEXT]
 variable = "CLAUDE_CONTEXT"
