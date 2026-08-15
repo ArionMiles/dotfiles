@@ -22,7 +22,7 @@ function pbpng
     pngpaste - | curl -F 'file=@-;filename=clipboard.png' https://x0.at/ | tee (pbcopy)
 end
 
-# Convert MKV to MP4
+# Convert MKV/video to WhatsApp-compatible MP4
 function mkv2mp4
     if test (count $argv) -lt 1
         echo "Usage: mkv2mp4 file1.mkv [file2.mkv ...]"
@@ -30,7 +30,7 @@ function mkv2mp4
     end
 
     for f in $argv
-        if not test -f $f
+        if not test -f "$f"
             echo "mkv2mp4: '$f' not found, skipping"
             continue
         end
@@ -38,17 +38,28 @@ function mkv2mp4
         set out $f
         switch $f
             case '*.mkv'
-                set out (string replace -r '\.mkv$' '.mp4' $f)
+                set out (string replace -r '\.mkv$' '.mp4' "$f")
             case '*'
                 set out "$f.mp4"
         end
 
         echo "Converting '$f' -> '$out'..."
-        ffmpeg -i "$f" -map 0 -c copy "$out"
+
+        ffmpeg -y -i "$f" \
+            -map 0:v:0 -map 0:a:0? \
+            -vf "scale='min(1280,iw)':-2" \
+            -c:v libx264 \
+            -preset medium \
+            -crf 24 \
+            -pix_fmt yuv420p \
+            -c:a aac \
+            -b:a 128k \
+            -movflags +faststart \
+            "$out"
     end
 end
 
-# Convert WEBM to MP4
+# Convert WEBM/video to WhatsApp-compatible MP4
 function webm2mp4
     if test (count $argv) -lt 1
         echo "Usage: webm2mp4 file1.webm [file2.webm ...]"
@@ -56,7 +67,7 @@ function webm2mp4
     end
 
     for f in $argv
-        if not test -f $f
+        if not test -f "$f"
             echo "webm2mp4: '$f' not found, skipping"
             continue
         end
@@ -64,13 +75,24 @@ function webm2mp4
         set out $f
         switch $f
             case '*.webm'
-                set out (string replace -r '\.webm$' '.mp4' $f)
+                set out (string replace -r '\.webm$' '.mp4' "$f")
             case '*'
                 set out "$f.mp4"
         end
 
         echo "Converting '$f' -> '$out'..."
-        ffmpeg -i "$f" -c:v copy -c:a copy "$out"
+
+        ffmpeg -y -i "$f" \
+            -map 0:v:0 -map 0:a:0? \
+            -vf "scale='min(1280,iw)':-2" \
+            -c:v libx264 \
+            -preset medium \
+            -crf 24 \
+            -pix_fmt yuv420p \
+            -c:a aac \
+            -b:a 128k \
+            -movflags +faststart \
+            "$out"
     end
 end
 
