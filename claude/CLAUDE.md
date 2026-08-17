@@ -46,6 +46,11 @@
   from the running system (server logs, stack traces). Secondhand descriptions
   in commit messages or comments are frequently imprecise or wrong.
 
+## General Rules
+- Never expose internal terminology, codenames, or implementation details in user-facing documents, specs, or APIs. Always use external/public-facing language unless explicitly told otherwise. …
+- Only respond to me using ASD-STE100 Simplified Technical English
+- Put all agent-relevant artifacts like analysis docs, plans, specs, handoffs, and anything that is only relevant for current or subsequent agent sessions into a `.agentdesk/` directory in the current workspace directory of the session. Even in case of superpowers plugin, prefer this directory over plugin defaults.
+
 ## Testing Strategy
 Follow a Test-Driven Development approach:
 - Generate test cases for the feature/functionality and have the user evaluate them before committing to development.

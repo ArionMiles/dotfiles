@@ -1,9 +1,6 @@
 {
   "awsAuthRefresh": "aws sso login --profile claude",
   "env": {
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "us.anthropic.claude-sonnet-4-6",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "us.anthropic.claude-opus-4-6-v1",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
     "ENABLE_LSP_TOOL": "1",
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "_ZO_DOCTOR": "0",
@@ -80,7 +77,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$DOTFILES/claude/notify.sh 'Claude needs your permission!'"
+            "command": "$DOTFILES/claude/notify.sh 'Claude needs your permission!' Blow"
           }
         ]
       }
@@ -91,7 +88,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$DOTFILES/claude/notify.sh 'Claude finished!'"
+            "command": "$DOTFILES/claude/notify.sh 'Claude finished!' Glass"
           }
         ]
       }

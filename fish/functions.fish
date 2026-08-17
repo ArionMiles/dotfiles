@@ -154,3 +154,14 @@ function kdf
     kubectl describe "$val"
 end
 
+# Force TERM=xterm-256color for `tsh ssh` — remote hosts lack the
+# xterm-ghostty terminfo entry, and Ghostty's ssh-terminfo shell-integration
+# wrapper only hooks the `ssh` binary, not tsh's own SSH client.
+function tsh --wraps=tsh --description "tsh wrapper forcing TERM for ssh subcommand"
+    if test "$argv[1]" = ssh
+        TERM=xterm-256color command tsh $argv
+    else
+        command tsh $argv
+    end
+end
+
