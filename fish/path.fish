@@ -3,7 +3,7 @@
 # ==============================================================================
 
 # User bins
-fish_add_path $HOME/bin $HOME/.local/bin /usr/local/bin
+fish_add_path $HOME/bin $HOME/.local/bin $HOME/go/bin /usr/local/bin
 
 # Add GNU coreutils to PATH (Homebrew on macOS)
 if test -n "$HOMEBREW_PREFIX"
