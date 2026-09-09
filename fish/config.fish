@@ -26,7 +26,3 @@ end
 #    end
 #end
 
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/kanishk/.lmstudio/bin
-# End of LM Studio CLI section
-
