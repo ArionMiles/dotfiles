@@ -5,6 +5,8 @@
 # Navigation
 abbr --add vi nvim
 
+abbr --add cc opencode
+
 # Git & GitHub CLI
 abbr --add gs git status
 abbr --add gswm git switch main
