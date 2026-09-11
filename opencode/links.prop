@@ -1,0 +1,3 @@
+$DOTFILES/opencode/opencode.jsonc=$HOME/.config/opencode/opencode.jsonc
+$DOTFILES/opencode/plugin=$HOME/.config/opencode/plugin
+$DOTFILES/agents/AGENTS.md=$HOME/.config/opencode/AGENTS.md
