@@ -181,11 +181,40 @@ install_awscliv2 () {
   fi
 }
 
+install_zed_cli () {
+  if [ "$(uname -s)" != "Darwin" ]; then
+    return
+  fi
+
+  local zed_cli="/Applications/Zed.app/Contents/MacOS/cli"
+  local zed_link="$HOME/.local/bin/zed"
+
+  if [ ! -x "$zed_cli" ] && [ -x "$HOME/Applications/Zed.app/Contents/MacOS/cli" ]; then
+    zed_cli="$HOME/Applications/Zed.app/Contents/MacOS/cli"
+  fi
+
+  if command -v zed >/dev/null 2>&1; then
+    info "Zed CLI is already installed."
+  elif [ ! -x "$zed_cli" ]; then
+    info "Skipping Zed CLI install: Zed.app is not installed"
+  elif [ -L "$zed_link" ]; then
+    ln -shf "$zed_cli" "$zed_link"
+    success "updated Zed CLI link at $zed_link"
+  elif [ -e "$zed_link" ]; then
+    info "Skipping Zed CLI install: $zed_link already exists"
+  else
+    mkdir -p "$(dirname "$zed_link")"
+    ln -s "$zed_cli" "$zed_link"
+    success "linked Zed CLI to $zed_link"
+  fi
+}
+
 install_dotfiles
 create_env_file
 install_homebrew
 install_tpm
 install_awscliv2
+install_zed_cli
 
 echo ''
 echo ''

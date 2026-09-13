@@ -1,0 +1,116 @@
+// Portable Zed settings.
+// Open this file in Zed with `zed: open settings file`.
+{
+  // Keep the familiar GoLand defaults; keymap.json adds a few VS Code aliases.
+  "cli_default_open_behavior": "new_window",
+  "base_keymap": "JetBrains",
+  "vim_mode": false,
+
+  // Save and format when leaving a buffer. Project-level .zed/settings.json
+  // and EditorConfig files can override these when a repository needs it.
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+
+  // Editing and navigation.
+  "colorize_brackets": true,
+  "use_smartcase_search": true,
+  "vertical_scroll_margin": 5,
+  "sticky_scroll": {
+    "enabled": true
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_value_hints": true
+  },
+  "file_finder": {
+    "modal_max_width": "medium"
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": true
+  },
+
+  // Keep useful status visible without permanently occupying more space.
+  "bottom_dock_layout": "contained",
+  "use_system_window_tabs": false,
+  "tab_bar": {
+    "show": true,
+    "show_pinned_tabs_in_separate_row": false
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+    "show_close_button": "hover",
+    "show_diagnostics": "all"
+  },
+  "title_bar": {
+    "button_layout": "platform_default",
+    "show_menus": false,
+    "show_user_picture": true,
+    "show_user_menu": true,
+    "show_sign_in": true,
+    "show_onboarding_banner": true,
+    "show_project_items": true,
+    "show_branch_name": true,
+    "show_branch_status_icon": false
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "line_endings_button": false,
+    "cursor_position_button": true,
+    "active_language_button": true
+  },
+  "project_panel": {
+    "button": true,
+    "dock": "left",
+    "default_width": 280,
+    "diagnostic_badges": true,
+    "git_status_indicator": true
+  },
+  "terminal": {
+    "button": true
+  },
+  "scrollbar": {
+    "show": "auto",
+    "axes": {
+      "horizontal": false,
+      "vertical": true
+    }
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 750,
+      "show_commit_summary": true
+    }
+  },
+
+  // Preserve the current local appearance and privacy choices.
+  "disable_ai": true,
+  "proxy": "",
+  "cursor_shape": "bar",
+  "agent_ui_font_size": 18.0,
+  "ui_font_weight": 400.0,
+  "ui_font_size": 18.0,
+  "buffer_font_size": 15.0,
+  "buffer_line_height": "comfortable",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "theme": {
+    "mode": "light",
+    "light": "Gruvbox Light",
+    "dark": "Ayu Dark"
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    }
+  }
+}

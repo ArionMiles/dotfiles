@@ -142,3 +142,5 @@ cask "font-jetbrains-mono-nerd-font"
 cask "halloy"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# High-performance code editor
+cask "zed"

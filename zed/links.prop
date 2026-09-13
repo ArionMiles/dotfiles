@@ -1,0 +1,2 @@
+$DOTFILES/zed/settings.json=$HOME/.config/zed/settings.json
+$DOTFILES/zed/keymap.json=$HOME/.config/zed/keymap.json

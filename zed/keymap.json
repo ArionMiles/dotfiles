@@ -1,0 +1,44 @@
+// A compact VS Code compatibility layer on top of Zed's JetBrains keymap.
+// Open the searchable keymap UI with cmd-k cmd-s.
+[
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      // Quick Open (VS Code); signature help remains on cmd-shift-space.
+      "cmd-p": "file_finder::Toggle",
+      "cmd-shift-space": "editor::ShowSignatureHelp",
+      "cmd-shift-n": "workspace::NewWindow",
+
+      // VS Code aliases alongside JetBrains' shift-f6 and f2 diagnostics.
+      "f2": "editor::Rename",
+      "f8": "editor::GoToDiagnostic",
+      "shift-f8": "editor::GoToPreviousDiagnostic",
+
+      // VS Code line movement and multicursor shortcuts.
+      "alt-up": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+      "cmd-alt-up": ["editor::AddSelectionAbove", { "skip_soft_wrap": true }],
+      "cmd-alt-down": ["editor::AddSelectionBelow", { "skip_soft_wrap": true }],
+      "cmd-shift-l": "editor::SelectAllMatches",
+
+      // Preserve Zed's structural selection on a nearby mnemonic pair.
+      "ctrl-alt-up": "editor::SelectLargerSyntaxNode",
+      "ctrl-alt-down": "editor::SelectSmallerSyntaxNode",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // Restore the standard macOS new-file shortcut overridden by JetBrains.
+      "cmd-n": "workspace::NewFile",
+      "cmd-shift-n": "workspace::NewWindow",
+
+      // GoLand-style file-search approximation.
+      "shift shift": "file_finder::Toggle",
+
+      // Handy when pasting paths into a terminal, issue, or review.
+      "cmd-k c": "workspace::CopyRelativePath",
+      "cmd-k shift-c": "workspace::CopyPath",
+    },
+  },
+]
