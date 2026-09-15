@@ -57,8 +57,6 @@ brew "gnupg"
 brew "go"
 # Task is a task runner/build tool that aims to be simpler and easier to use
 brew "go-task"
-# Kubernetes package manager
-brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
 # Library to render SVG files using Cairo
@@ -67,10 +65,6 @@ brew "librsvg"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Kubernetes command-line interface
-brew "kubernetes-cli"
-# Postgres C API library
-brew "libpq", link: true
 # Apache Kafka C/C++ library
 brew "librdkafka"
 # Fast, highly customisable system info script
@@ -101,8 +95,6 @@ brew "sevenzip"
 brew "shellcheck"
 # Cross-shell prompt for astronauts
 brew "starship"
-# Tail multiple Kubernetes pods & their containers
-brew "stern"
 # Open source continuous file synchronization application
 brew "syncthing", restart_service: :changed
 # Parser generator tool
@@ -123,10 +115,6 @@ brew "yt-dlp"
 brew "zoxide"
 # GNU File, Shell, and Text utilities
 brew "fish"
-# Terraform
-brew "hashicorp/tap/terraform"
-# Vault
-brew "hashicorp/tap/vault"
 # Smart terminal session manager
 brew "joshmedeski/sesh/sesh"
 # Command-line interface for 1Password
