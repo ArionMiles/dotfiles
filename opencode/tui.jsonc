@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  // Native attention: desktop notifications (only when the terminal is
+  // blurred) + sounds for questions, permission requests, session errors,
+  // and completed sessions. Remaining defaults are sane as-is:
+  // notifications: on, sound: on, volume: 0.4, sound_pack: opencode.default.
+  // Per-event sound overrides go under attention.sounds if ever needed.
+  "attention": {
+    "enabled": true
+  }
+}
