@@ -1,16 +1,7 @@
 {
   "awsAuthRefresh": "aws sso login --profile claude",
   "env": {
-    "ENABLE_LSP_TOOL": "1",
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "_ZO_DOCTOR": "0",
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-    "OTEL_METRICS_EXPORTER": "otlp",
-    "OTEL_LOGS_EXPORTER": "otlp",
-    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:14317",
-    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
-    "OTEL_LOG_TOOL_DETAILS": "1",
-    "OTEL_LOG_USER_PROMPTS": "1"
+    "_ZO_DOCTOR": "0"
   },
   "attribution": {
     "commit": "",
@@ -65,10 +56,7 @@
       "Bash(git push:*)",
       "Read(**)"
     ],
-    "deny": [
-      "Bash(rm -rf:*)",
-      "Read(**/.env*)"
-    ]
+    "deny": ["Bash(rm -rf:*)", "Read(**/.env*)"]
   },
   "model": "sonnet",
   "hooks": {
