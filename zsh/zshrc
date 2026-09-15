@@ -7,11 +7,12 @@ setopt HIST_IGNORE_SPACE      # ignore commands that start with space
 # Contains path to DOTFILES repo
 [ -f "$HOME/.env.sh" ] && source "$HOME/.env.sh"
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extras can be used for other settings you don’t want to commit.
-for file in $DOTFILES/zsh/{path,bash_prompt,exports,aliases,functions,extras}.sh; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+# Load shell dotfiles from the drop-in directory. Files land here as per-file
+# symlinks declared in links.prop files; numeric prefixes control load order
+# (9x reserved for extras). Other config repos (e.g. work) drop files here too.
+# shellcheck disable=SC1036 # (N-.) is a zsh glob qualifier: null-glob, follow symlinks
+for file in $HOME/.config/zsh/conf.d/*.sh(N-.); do
+	[ -r "$file" ] && source "$file"
 done;
 unset file
 

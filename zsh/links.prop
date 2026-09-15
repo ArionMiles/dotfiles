@@ -1,3 +1,7 @@
 $DOTFILES/zsh/zshrc=$HOME/.zshrc
 $DOTFILES/zsh/zprofile=$HOME/.zprofile
 $DOTFILES/zsh/hushlogin=$HOME/.hushlogin
+$DOTFILES/zsh/path.sh=$HOME/.config/zsh/conf.d/00-path.sh
+$DOTFILES/zsh/exports.sh=$HOME/.config/zsh/conf.d/10-exports.sh
+$DOTFILES/zsh/aliases.sh=$HOME/.config/zsh/conf.d/20-aliases.sh
+$DOTFILES/zsh/functions.sh=$HOME/.config/zsh/conf.d/30-functions.sh
