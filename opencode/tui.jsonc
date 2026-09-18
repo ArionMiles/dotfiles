@@ -7,5 +7,10 @@
   // Per-event sound overrides go under attention.sounds if ever needed.
   "attention": {
     "enabled": true
+  },
+  "keybinds": {
+    "leader": "ctrl+x",
+    "app_exit": "ctrl+d,<leader>q",
+    "session_interrupt": "ctrl+c"
   }
 }

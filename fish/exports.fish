@@ -4,7 +4,7 @@
 
 # Editor
 set -gx EDITOR nvim
-set -gx VISUAL nvim
+set -gx VISUAL 'zed --wait'
 
 # Don't clear the screen after quitting a manual page.
 set -gx MANPAGER 'less -X'

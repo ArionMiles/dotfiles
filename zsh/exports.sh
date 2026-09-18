@@ -6,7 +6,7 @@ export SAVEHIST=10000
 
 # Neovim
 export EDITOR="nvim"
-export VISUAL="nvim"
+export VISUAL="zed --wait"
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X'
