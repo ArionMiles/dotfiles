@@ -2,6 +2,11 @@
 // Open this file in Zed with `zed: open settings file`.
 {
   // Keep the familiar GoLand defaults; keymap.json adds a few VS Code aliases.
+  "diff_view_style": "unified",
+  "git_panel": {
+    "group_by": "staging",
+    "tree_view": true
+  },
   "cli_default_open_behavior": "new_window",
   "base_keymap": "JetBrains",
   "vim_mode": false,
