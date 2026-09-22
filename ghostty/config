@@ -1,3 +1,6 @@
+# Always use tip
+auto-update-channel = tip
+
 font-family = JetBrainsMono Nerd Font
 font-size = 14
 theme = TokyoNight
