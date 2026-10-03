@@ -7,5 +7,6 @@
         "region": "{env:AWS_BEDROCK_REGION}"
       }
     }
-  }
+  },
+  "instructions": ["~/.config/opencode/AGENTS.d/*.md"]
 }

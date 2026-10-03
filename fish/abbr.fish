@@ -6,6 +6,7 @@
 abbr --add vi nvim
 
 abbr --add cc opencode
+abbr --add ccc opencode -c
 
 # Git & GitHub CLI
 abbr --add gs git status
@@ -21,6 +22,9 @@ alias zad='find . -mindepth 1 -maxdepth 1 -type d -exec zoxide add "{}" \;'
 abbr --add path printf '%s\n' $PATH
 # Get week number
 abbr --add week date +%V
+
+# Copy last command
+abbr --add copy-last 'echo $history[1] | fish_clipboard_copy'
 
 # Go
 abbr --add tidy go mod tidy
