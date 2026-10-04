@@ -3,7 +3,7 @@
 {
   // Keep the familiar GoLand defaults; keymap.json adds a few VS Code aliases.
   "markdown_preview": {
-    "limit_content_width": false
+    "limit_content_width": false,
   },
   "diff_view_style": "unified",
   "git_panel": {
