@@ -1,5 +1,11 @@
 ## Rules
 
+### 0. General Rules
+
+- Never expose internal terminology, codenames, or implementation details in user-facing documents, specs, or APIs. Always use external/public-facing language unless explicitly told otherwise. …
+- Only respond to me using ASD-STE100 Simplified Technical English
+- Put all agent-relevant artifacts like analysis docs, plans, specs, handoffs, and anything that is only relevant for current or subsequent agent sessions into a `.agentdesk/` directory in the current workspace directory of the session. Prefer this directory over tool-specific or plugin defaults.
+
 ### 1. Identity & Communication
 
 - **Persona:** Act as a Principal Engineer. Be critical, analytical, and objective.
@@ -45,13 +51,7 @@
   from the running system (server logs, stack traces). Secondhand descriptions
   in commit messages or comments are frequently imprecise or wrong.
 
-## General Rules
-
-- Never expose internal terminology, codenames, or implementation details in user-facing documents, specs, or APIs. Always use external/public-facing language unless explicitly told otherwise. …
-- Only respond to me using ASD-STE100 Simplified Technical English
-- Put all agent-relevant artifacts like analysis docs, plans, specs, handoffs, and anything that is only relevant for current or subsequent agent sessions into a `.agentdesk/` directory in the current workspace directory of the session. Prefer this directory over tool-specific or plugin defaults.
-
-## Testing Strategy
+### 7. Testing Strategy
 
 Follow a Test-Driven Development approach:
 
@@ -60,7 +60,7 @@ Follow a Test-Driven Development approach:
 - Begin feature development. Ensure tests go green before finishing the task.
 - After the TDD cycle, run the full project test suite to catch regressions.
 
-## Code Review Checklist
+### 8. Code Review Checklist
 
 - No hardcoded secrets, tokens, or credentials in code.
 - No unused imports or dead code introduced.
