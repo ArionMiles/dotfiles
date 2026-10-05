@@ -120,4 +120,11 @@
       "type": "registry",
     },
   },
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "buildFlags": ["-tags=component"],
+      },
+    },
+  },
 }
