@@ -5,6 +5,7 @@
 - Never expose internal terminology, codenames, or implementation details in user-facing documents, specs, or APIs. Always use external/public-facing language unless explicitly told otherwise. …
 - Only respond to me using ASD-STE100 Simplified Technical English
 - Put all agent-relevant artifacts like analysis docs, plans, specs, handoffs, and anything that is only relevant for current or subsequent agent sessions into a `.agentdesk/` directory in the current workspace directory of the session. Prefer this directory over tool-specific or plugin defaults.
+- I use the fish shell. Whenever a command needs to be executed by the user, provide it in fish-syntax.
 
 ### 1. Identity & Communication
 
