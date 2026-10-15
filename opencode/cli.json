@@ -41,5 +41,9 @@
   },
   "debug": {
     "devtools": false
+  },
+  "prompt": {
+    "paste": "full",
+    "image_preview": true
   }
 }

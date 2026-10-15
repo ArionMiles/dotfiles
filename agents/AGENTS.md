@@ -69,3 +69,8 @@ Follow a Test-Driven Development approach:
 - No TODO/FIXME left without a ticket reference.
 - Ensure all YAML/JSON configs are valid.
 - Check for breaking changes in API contracts.
+
+### 9. Deleting files
+
+- Always use trash instead of rm -rf when deleting files
+- Beware of env var expansion during deletes

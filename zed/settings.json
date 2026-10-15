@@ -106,7 +106,7 @@
   },
 
   // Preserve the current local appearance and privacy choices.
-  "disable_ai": true,
+  "disable_ai": false,
   "proxy": "",
   "cursor_shape": "bar",
   "agent_ui_font_size": 18.0,
@@ -125,8 +125,11 @@
     "dark": "Ayu Dark",
   },
   "agent_servers": {
-    "codex-acp": {
-      "type": "registry",
+    "opencode": {
+      "default_config_options": {
+        "effort": "medium"
+      },
+      "type": "registry"
     },
   },
   "lsp": {
