@@ -154,3 +154,14 @@ function kdf
     kubectl describe "$val"
 end
 
+# Toggle fish private mode (history recording off/on)
+function privatemode
+    if set -q fish_private_mode
+        set -e fish_private_mode
+        echo "private mode OFF - commands are saved to history"
+    else
+        set -g fish_private_mode 1
+        echo "private mode ON - commands are not saved to history"
+    end
+end
+
