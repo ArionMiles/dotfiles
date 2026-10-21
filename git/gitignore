@@ -63,4 +63,7 @@ tags.lock
 
 .gittemplate
 
+# Agent scratchpad
+.agentdesk/
+
 
