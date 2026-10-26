@@ -24,6 +24,16 @@
       // Preserve Zed's structural selection on a nearby mnemonic pair.
       "ctrl-alt-up": "editor::SelectLargerSyntaxNode",
       "ctrl-alt-down": "editor::SelectSmallerSyntaxNode",
+
+      // Neovim-style pane navigation: ctrl-w followed by h/j/k/l.
+      "ctrl-w": null,
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+
+      // Unbind Emacs line-start so the ctrl-a split prefix is not shadowed.
+      "ctrl-a": null,
     },
   },
   {
@@ -39,6 +49,14 @@
       // Handy when pasting paths into a terminal, issue, or review.
       "cmd-k c": "workspace::CopyRelativePath",
       "cmd-k shift-c": "workspace::CopyPath",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      // tmux-style prefix splits: ctrl-a \ (side by side), ctrl-a - (stacked).
+      "ctrl-a \\": "pane::SplitRight",
+      "ctrl-a -": "pane::SplitDown",
     },
   },
 ]
