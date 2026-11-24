@@ -65,5 +65,7 @@ tags.lock
 
 # Agent scratchpad
 .agentdesk/
+.ignore
 
-
+# Zed Editor
+.zed
